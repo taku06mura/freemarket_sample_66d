@@ -8,12 +8,12 @@
 |password|string|null: false|
 |nickname|string|null: false,index: true|
 ### Association
-- has_many :addresses
-- has_many :credits
-- has_many :sns_users
-- has_many :goods
-- has_many :comments
-- belongs_to :profile
+- has_many :addresses dependent: :destroy
+- has_many :credits dependent: :destroy
+- has_many :sns_users dependent: :destroy
+- has_many :items dependent: :destroy
+- has_many :comments dependent: :destroy
+- belongs_to :profile dependent: :destroy
 
 ## creditsテーブル
 |Column|Type|Options|
@@ -37,7 +37,7 @@
 |------|----|-------|
 |brand|string|null: false|
 ### Association
-- has_many :goods
+- has_many :items
 
 ## categorysテーブル
 |Column|Type|Options|
@@ -45,14 +45,14 @@
 |category|string|null: false,index: true|
 |parent|string||
 ### Association
-- has_many :goods
+- has_many :items
 
-## goodsテーブル
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|string|null: false|
-|goods_name|string|null: false|
-|goods_discription|string|null: false|
+|item_name|string|null: false|
+|item_discription|string|null: false|
 |category|string|null: false|
 |quality|string|null: false|
 |prefectures|string|null: false|
@@ -61,8 +61,8 @@
 |size|string|null: false|
 |carriage_fee|string|null: false|
 ### Association
-- has_many :images
-- has_many :comments
+- has_many :images dependent: :destroy
+- has_many :comments dependent: :destroy
 - belongs_to :user
 - belongs_to :brand
 - belongs_to :category
@@ -71,11 +71,11 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|string|null: false|
-|goods|string|null: false|
+|item|string|null: false|
 |user_id|string|null: false,index: true|
 ### Association
 - belongs_to :user
-- belongs_to :good
+- belongs_to :item
 
 ## profilesテーブル
 |Column|Type|Options|
@@ -92,6 +92,7 @@
 |municipality|string|null: false,index: true|
 |address|string|null: false|
 |building_name|string||
+|user_id|string|null: false,index: true|
 ### Association
 - belongs_to :user
 
@@ -99,7 +100,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|goods|string|null: false|
+|item|string|null: false|
 ### Association
 - belongs_to :good
 
