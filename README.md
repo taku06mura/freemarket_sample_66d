@@ -19,12 +19,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|customer|integer|null: false, foreign_key: true|
-|card_id|integer|null: false, foreign_key: true|
+|customer|string|null: false, foreign_key: true|
+|card_id|string|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
-## sns_usersテーブル
+## authテーブル
 |Column|Type|Options|
 |------|----|-------|
 |Provider|integer|null: false|
@@ -43,23 +43,23 @@
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false,index: true|
-|parent|string||
+|parent|integer||
 ### Association
 - has_many :items
 
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|string|null: false|
+|user_id|integer|null: false|
 |item_name|string|null: false|
 |item_discription|string|null: false|
-|category|string|null: false|
+|category_id|integer|null: false|
 |quality|string|null: false|
 |prefectures|string|null: false|
-|price|string|null: false|
-|brand|string|null: false,index: true|
+|price|integer|null: false|
+|brand_id|integer|null: false,index: true|
 |size|string|null: false|
-|carriage_fee|string|null: false|
+|carriage_fee|integer|null: false|
 ### Association
 - has_many :images dependent: :destroy
 - has_many :comments dependent: :destroy
@@ -71,8 +71,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|string|null: false|
-|item|string|null: false|
-|user_id|string|null: false,index: true|
+|item_id|integer|null: false|
+|user_id|integer|null: false,index: true|
 ### Association
 - belongs_to :user
 - belongs_to :item
@@ -81,6 +81,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |selfintroduction|text|null: false|
+|user_id|integer|null: false,index: true|
 ### Association
 - belongs_to :user
 
@@ -92,7 +93,7 @@
 |municipality|string|null: false,index: true|
 |address|string|null: false|
 |building_name|string||
-|user_id|string|null: false,index: true|
+|user_id|integer|null: false,index: true|
 ### Association
 - belongs_to :user
 
@@ -100,9 +101,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|item|string|null: false|
+|item_id|integer|null: false|
 ### Association
-- belongs_to :good
+- belongs_to :item
 
 ## personal_dateテーブル
 |Column|Type|Options|
@@ -113,6 +114,7 @@
 |kana_last_name|string|null: false,index: true|
 |birthday|string|null: false,index: true|
 |phone_number|string|null: false,index: true|
+|user_id|integer|null: false,index: true|
 ### Association
 - belongs_to :user
 
