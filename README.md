@@ -105,15 +105,17 @@
 ### Association
 - belongs_to :item
 
-## personal_dateテーブル
+## personal_dataテーブル
 |Column|Type|Options|
 |------|----|-------|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |kana_first_name|string|null: false,index: true|
 |kana_last_name|string|null: false,index: true|
-|birthday|string|null: false,index: true|
-|phone_number|string|null: false,index: true|
+|birthday_year|integer|null: false,index: true|
+|birthday_month|integer|null: false,index: true|
+|birthday_day|integer|null: false,index: true|
+|phone_number|integer|null: false,index: true|
 |user_id|integer|null: false,index: true|
 ### Association
 - belongs_to :user
