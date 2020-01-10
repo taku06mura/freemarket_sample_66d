@@ -1,3 +1,112 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.ii-wrapper{
+  background-color: rgb(245, 245, 245);
+  position: relative;
+  .ii-top{
+    max-width: 1040px;
+    margin: 0 auto;
+    .ii-menu{
+      position: relative;
+      box-sizing: border-box;
+      .ii-info{
+        color: rgb(245, 245, 245);
+        font-size: 50px;
+        text-align: center;
+        position: relative;
+        width: 100vw;
+        height: 100px;
+        margin-left: -50vw;
+        left: 50%;
+        background-color: blue;
+        overflow: hidden;
+      }
+      .ii-tag{
+        position: relative;
+        width: 100vw;
+        height: 100px;
+        margin-left: -50vw;
+        left: 50%;
+        padding-bottom: 20px;
+        background-color: white;
+        &-title{
+          padding-top: 10px;
+          padding-bottom: 20px;
+          font-size: 30px;
+          text-align: center;
+        }
+        &-category{
+          width: 100%;
+          .ii-categorys{
+            list-style: none;
+            display: flex;
+            justify-content: center;
+          
+            .ii-category{
+              font-size: 20px;
+              background-color:rgb(239, 239, 239);
+              border-radius: 50%;
+              margin-right: 20px;
+            }
+          }
+        }
+      }
+      .ii-contents{
+        box-sizing: border-box;
+        padding: 42px 0 100px;
+        &-nav{
+          background-color: white;
+          &__name{
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            &-title{
+              font-size: 24px;
+            }
+          }
+          &__items{
+            &--list{
+              .ii-items{
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                list-style: none;
+                .ii-item{
+                  width: 20%;
+                  padding: 10px;
+                  height: 200px;
+                  box-sizing: border-box;
+                  display: list-item;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .ii-camera{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color:red;
+    position: absolute;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    &-btn{
+      text-decoration: none;
+      .ii-icon-box{
+        margin-top: 20px;
+        text-decoration: none;
+        text-align: center;
+        &__text{
+          font-size: 25px;
+          color: rgb(245, 245, 245);
+        }
+        .fas.fa-camera{
+          font-size: 80px;
+          color: white;
+        }
+      }
+    }
+  }
+}
