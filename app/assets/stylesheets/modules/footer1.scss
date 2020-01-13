@@ -1,0 +1,170 @@
+.aside {
+  font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+
+  box-sizing: border-box;
+
+  margin-top: auto;
+  display: block;
+  color: rgb(255, 255, 255);
+  background-image: image-url("images-bgi.jpeg");
+  background-position: center center;
+  &__main {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 750px;
+    margin: 0px auto;
+    &__left {
+      display: flex;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      justify-content: center;
+      h1 {
+        color: rgb(255, 255, 255);
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+      h2 {
+        color: rgb(255, 255, 255);
+        font-size: 35px;
+        margin-bottom: 20px;
+      }
+      &__api {
+        display: flex;
+        .logo-red {
+          height: 68px;
+          margin-right: 20px;
+          width: 68px;
+        }
+        .logo-app {
+          height: 20px;  //本物は40px
+          margin-right: 8px;
+          width: 60px;  //本物は144px
+        }
+        .logo-google {
+          height: 20px;  //本物は40px
+          width: 60px;  //本物は144px
+        }
+      }
+    }
+    &__right {
+      height: 260px;
+      width: 300px;
+      .image-bgi2 {
+        vertical-align: middle;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+.footer1 {
+  font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+  font-weight: 500;
+  padding: 0 20px 10px 20px;
+  background: #212121;
+  color: #fff;
+  border-width: 0;
+  &__box {
+    width: 1020px;
+    display: flex;
+    margin-top: 18px;
+    margin: 0 auto;
+    padding: 0;
+    a:hover {
+      text-decoration:underline;
+      }
+    .link {
+      font-size: 12px;
+      opacity: .7;
+      color: #fff;
+      text-decoration: none;
+    }
+    li {
+      margin: 14px 0 0;
+      text-align: -webkit-match-parent;
+    }
+    &__info {
+      padding: 0 20px 0 0;
+      width: 20%;
+      h1 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      &__link {
+        display: block;
+        line-height: 1.5em;
+      }
+    }
+    &__guide {
+      width: 23%;
+      padding: 0 40px 0 0;
+      vertical-align: top;
+      h2 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      &__link {
+        display: block;
+        line-height: 1.5em;
+      }
+    }
+    &__service {
+      padding: 0 40px 0 0;
+      width: 42%;
+      h3 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      &__link1 {
+        display: block;
+        line-height: 1.5em;
+        float: left;
+      }
+      &__link2 {
+        display: block;
+        line-height: 1.5em;
+      }
+    }
+    &__country {
+      width: auto;
+      h4 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      &__link {
+        display: block;
+        line-height: 1.5em;
+        white-space: nowrap;
+      }
+    }
+  }
+  &__bottom {
+    margin: 30px auto 20px;
+    width: 1020px;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    &__logo {
+      text-align: center;
+      color: inherit;
+      text-decoration: none;
+      .fremalogo-footer {
+        height: 31px;
+        width: 124px;
+      }
+    }
+    &__copyright {
+      text-align: center;
+      padding-left: 15px;
+      width: 75%;
+    }
+  }
+  
+}
+

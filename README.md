@@ -13,7 +13,9 @@
 - has_many :sns_users dependent: :destroy
 - has_many :items dependent: :destroy
 - has_many :comments dependent: :destroy
-- belongs_to :profile dependent: :destroy
+- has_one :profile dependent: :destroy
+- has_one :personal_data dependent: :destroy
+
 
 ## creditsテーブル
 |Column|Type|Options|
@@ -105,14 +107,16 @@
 ### Association
 - belongs_to :item
 
-## personal_dateテーブル
+## personal_dataテーブル
 |Column|Type|Options|
 |------|----|-------|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |kana_first_name|string|null: false,index: true|
 |kana_last_name|string|null: false,index: true|
-|birthday|string|null: false,index: true|
+|birthday_year|integer|null: false,index: true|
+|birthday_month|integer|null: false,index: true|
+|birthday_day|integer|null: false,index: true|
 |phone_number|string|null: false,index: true|
 |user_id|integer|null: false,index: true|
 ### Association
