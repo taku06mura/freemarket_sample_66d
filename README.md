@@ -13,7 +13,8 @@
 - has_many :sns_users dependent: :destroy
 - has_many :items dependent: :destroy
 - has_many :comments dependent: :destroy
-- belongs_to :profile dependent: :destroy
+- has_one :profile dependent: :destroy
+- has_one :personal_data dependent: :destroy
 
 ## creditsテーブル
 |Column|Type|Options|
@@ -88,8 +89,8 @@
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|prefectures|string|null: false|
-|postal_code|string|null: false|
+|prefecture|string|null: false|
+|postal_code|integer|null: false|
 |municipality|string|null: false,index: true|
 |address|string|null: false|
 |building_name|string||
