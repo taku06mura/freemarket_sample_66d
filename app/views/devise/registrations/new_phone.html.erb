@@ -1,0 +1,16 @@
+<h2>電話番号登録</h2>
+
+<%= form_for @user, url: create_phone_path do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= f.fields_for :personal_datum do |fin| %>
+    <div class="field">
+      <%= fin.label :phone_number %><br />
+      <%= fin.number_field :phone_number, autocomplete: "phone_number" %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
