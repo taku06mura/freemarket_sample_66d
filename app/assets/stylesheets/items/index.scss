@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 .ii-info{
-  color: rgb(245, 245, 245);
+  color: $main_color;
   font-size: 50px;
   text-align: center;
   position: relative;
@@ -100,7 +100,7 @@
       text-align: center;
       &--text{
         font-size: 25px;
-        color: rgb(245, 245, 245);
+        color: $main_color;
       }
       .fas.fa-camera{
         font-size: 80px;
