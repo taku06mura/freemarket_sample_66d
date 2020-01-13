@@ -4,7 +4,6 @@
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   font-size: 14px;
   line-height: 1;
-
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   position: relative;
@@ -33,7 +32,7 @@
         position: relative;
         width: 100%;
         .search {
-          background-color: rgb(245, 245, 245);
+          background-color: $main-color;
           font-size: 16px;
           height: 40px;
           line-height: 1.4em;
@@ -103,7 +102,6 @@
           z-index: 3;
           padding: 0px 10px;
           &__link {
-            color: black;
             display: block;
             font-size: 14px;
             font-weight: 600;
@@ -123,33 +121,37 @@
       &__menu {
         display: flex;
         position: relative;
-        list-style: none;
-        &__link {
+        ul {
+          list-style: none;
+        }
+        li {
           padding: 0px 14px;
           height: 44px;
           position: relative;
           display: list-item;
           text-align: -webkit-match-parent;
-          &--mypage {
-            -webkit-box-align: center;
-            color: black;
-            align-items: center;
-            display: flex;
-            font-size: 14px;
-            height: 32px;
-            transform: scale(1);
-            transition: all 0.3s ease-out 0s;
-          }
+        }
+        .menuicon {
+          max-width: 100%;
+          height: auto;
+          max-height: 100%;
+          color: rgb(204, 204, 204);
+          margin-right: 10px;
+          font-size: 20px;
+        }
+        .mypage {
+          -webkit-box-align: center;
+          align-items: center;
+          display: flex;
+          font-size: 14px;
+          height: 32px;
+          transform: scale(1);
+          transition: all 0.3s ease-out 0s;
+        }
+        &__heart {
+          display: block;
         }
       }
     }
   }
-}
-.menuicon {
-  max-width: 100%;
-  height: auto;
-  max-height: 100%;
-  color: rgb(204, 204, 204);
-  margin-right: 10px;
-  font-size: 20px;
 }

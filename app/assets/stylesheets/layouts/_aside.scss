@@ -1,0 +1,58 @@
+.aside {
+  font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+  box-sizing: border-box;
+  margin-top: auto;
+  display: block;
+  color: rgb(255, 255, 255);
+  background-image: image-url(“images-bgi.jpeg”);
+  background-position: center center;
+  &__main {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 750px;
+    margin: 0px auto;
+    &__left {
+      display: flex;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      justify-content: center;
+      h1 {
+        color: rgb(255, 255, 255);
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+      h2 {
+        color: rgb(255, 255, 255);
+        font-size: 35px;
+        margin-bottom: 20px;
+      }
+      &__api {
+        display: flex;
+        .logo-red {
+          height: 68px;
+          margin-right: 20px;
+          width: 68px;
+        }
+        .logo-app {
+          height: 20px;  //本物は40px
+          margin-right: 8px;
+          width: 60px;  //本物は144px
+        }
+        .logo-google {
+          height: 20px;  //本物は40px
+          width: 60px;  //本物は144px
+        }
+      }
+    }
+    &__right {
+      height: 260px;
+      width: 300px;
+      .image-bgi2 {
+        vertical-align: middle;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
