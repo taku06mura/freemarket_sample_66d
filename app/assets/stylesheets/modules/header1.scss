@@ -102,7 +102,8 @@
           position: relative;
           z-index: 3;
           padding: 0px 10px;
-          .link {
+          &__link {
+            color: black;
             display: block;
             font-size: 14px;
             font-weight: 600;
@@ -122,39 +123,33 @@
       &__menu {
         display: flex;
         position: relative;
-        ul {
-          list-style: none;
-        }
-        li {
+        list-style: none;
+        &__link {
           padding: 0px 14px;
-        
           height: 44px;
           position: relative;
-        
           display: list-item;
           text-align: -webkit-match-parent;
-        }
-        .menuicon {
-          max-width: 100%;
-          height: auto;
-          max-height: 100%;
-          color: rgb(204, 204, 204);
-          margin-right: 10px;
-          font-size: 20px;
-        }
-        .mypage {
-          -webkit-box-align: center;
-          align-items: center;
-          display: flex;
-          font-size: 14px;
-          height: 32px;
-          transform: scale(1);
-          transition: all 0.3s ease-out 0s;
-        }
-        &__heart {
-          display: block;
+          &--mypage {
+            -webkit-box-align: center;
+            color: black;
+            align-items: center;
+            display: flex;
+            font-size: 14px;
+            height: 32px;
+            transform: scale(1);
+            transition: all 0.3s ease-out 0s;
+          }
         }
       }
     }
   }
+}
+.menuicon {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  color: rgb(204, 204, 204);
+  margin-right: 10px;
+  font-size: 20px;
 }

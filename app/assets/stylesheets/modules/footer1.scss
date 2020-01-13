@@ -75,12 +75,6 @@
     a:hover {
       text-decoration:underline;
       }
-    .link {
-      font-size: 12px;
-      opacity: .7;
-      color: #fff;
-      text-decoration: none;
-    }
     li {
       margin: 14px 0 0;
       text-align: -webkit-match-parent;
@@ -141,6 +135,7 @@
         display: block;
         line-height: 1.5em;
         white-space: nowrap;
+
       }
     }
   }
@@ -166,5 +161,11 @@
     }
   }
   
+}
+.footer-link {
+  font-size: 12px;
+  opacity: .7;
+  color: #fff;
+  text-decoration: none;
 }
 

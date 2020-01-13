@@ -1,0 +1,110 @@
+.aside
+  .aside__main
+    .aside__main__left
+      %h1 スマホでかんたんフリマアプリ
+      %h2 今すぐ無料ダウンロード！
+      .aside__main__left__api
+        = link_to root_path, class: 'logo-red' do
+          = image_tag 'logo_red.svg'
+        = link_to root_path, class: 'logo-app' do
+          = image_tag 'logo_white.svg'
+        = link_to root_path, class: 'logo-google' do
+          = image_tag 'logo_white.svg'
+    .aside__main__right
+      = image_tag 'image-bgi2.jpeg', class: 'image-bgi2'
+
+
+.footer1
+  .footer1__box
+    .footer1__box__info
+      %h1 フリマ66dについて
+      %ul.footer1__box__info__link
+        %li.footer1__box__info__link__list
+          = link_to root_path, class: "footer-link"  do
+            会社概要（運営会社）
+        %li.footer1__box__info__link__list
+          = link_to root_path, class: "footer-link"  do
+            採用情報
+        %li.footer1__box__info__link__list
+          = link_to root_path, class: "footer-link"  do
+            プレスリリース
+        %li.footer1__box__info__link__list
+          = link_to root_path, class: "footer-link"  do
+            公式ブログ
+        %li.footer1__box__info__link__list
+          = link_to root_path, class: "footer-link"  do
+            フリマ66dロゴ利用ガイドライン
+        %li.footer1__box__info__link__list
+          = icon 'fab', 'facebook', class: 'icon'
+        %li.footer1__box__info__link__list
+          = icon 'fab', 'twitter', class: 'icon'
+    .footer1__box__guide
+      %h2 ヘルプ&ガイド
+      %ul.footer1__box__guide__link
+        %li.footer1__box__guide__link__list
+          = link_to root_path, class: "footer-link"  do
+            フリマ66dガイド
+        %li.footer1__box__guide__link__list
+          = link_to root_path, class: "footer-link"  do
+            らくらくフリマ66d便
+        %li.footer1__box__guide__link__list
+          = link_to root_path, class: "footer-link"  do
+            ゆうゆうフリマ66d便
+        %li.footer1__box__guide__link__list
+          = link_to root_path, class: "footer-link"  do
+            大型フリマ66d便
+        %li.footer1__box__guide__link__list
+          = link_to root_path, class: "footer-link"  do
+            車体取引ガイド
+        %li.footer1__box__guide__link__list
+          = link_to root_path, class: "footer-link"  do
+            フリマ66dあんしん・あんぜん宣言！
+        %li.footer1__box__guide__link__list
+          = link_to root_path, class: "footer-link"  do
+            偽ブランド品撲滅への取り組み
+        %li.footer1__box__guide__link__list
+          = link_to root_path, class: "footer-link"  do
+            フリマ66dボックス
+    .footer1__box__service
+      %h3 プライバシーと利用規約
+      %ul.footer1__box__service__link1
+        %li.footer1__box__service__link1__list
+          = link_to root_path, class: "footer-link"  do
+            プライバシーポリシー
+        %li.footer1__box__service__link1__list
+          = link_to root_path, class: "footer-link"  do
+            フリマ66d利用規約
+        %li.footer1__box__service__link1__list
+          = link_to root_path, class: "footer-link"  do
+            あんしんスマホサポート制度に関する利用特約
+        %li.footer1__box__service__link1__list
+          = link_to root_path, class: "footer-link"  do
+            コンプライアンスポリシー
+      %ul.footer1__box__service__linkguide
+        %li.footer1__box__service__link2__list
+          = link_to root_path, class: "footer-link"  do
+            個人データの安全管理に係る基本方針
+        %li.footer1__box__service__link2__list
+          = link_to root_path, class: "footer-link"  do
+            特定商取引に関する表記
+        %li.footer1__box__service__link2__list
+          = link_to root_path, class: "footer-link"  do
+            資金決済法に基づく表示
+        %li.footer1__box__service__link2__list
+          = link_to root_path, class: "footer-link"  do
+            法令順守と犯罪抑止のために
+    .footer1__box__country
+      %h4 国
+      %ul.footer1__box__country__link
+        %li.footer1__box__country__link__list
+          = link_to root_path, class: "footer-link"  do
+            日本
+        %li.footer1__box__country__link__list
+          = link_to root_path, class: "footer-link"  do
+            United States
+  .footer1__bottom
+    .footer1__bottom__logo
+      = link_to root_path, class: 'fremalogo-footer' do
+        = image_tag 'fmarket_logo_red.svg'
+    .footer1__bottom__copyright
+      %small @Frema,lnc.

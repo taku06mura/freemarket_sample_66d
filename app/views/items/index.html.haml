@@ -1,5 +1,5 @@
 .wrapper
-  = render 'header1'
+  = render 'layouts/header1'
   .ii-top
     .ii-menu
       .ii-info 
@@ -14,8 +14,8 @@
       .ii-contents
         .ii-contents-nav
           .ii-contents-nav__name
-            %h1.ii-contents-nav__name-title 商品一覧
-            = link_to "もっとみる >"
+            %h1.ii-contents-nav__name--title 商品一覧
+            = link_to "もっとみる >", root_path, class: "ii-contents-nav__name--link"
           .ii-contents-nav__items
             .ii-contents-nav__items__list
               %ul.ii-contents-nav__items__list__items
@@ -71,8 +71,8 @@
         .ii-contents
         .ii-contents-nav
           .ii-contents-nav__name
-            %h1.ii-contents-nav__name-title 商品一覧
-            = link_to "もっとみる >"
+            %h1.ii-contents-nav__name--title 商品一覧
+            = link_to "もっとみる >", root_path, class: "ii-contents-nav__name--link"
           .ii-contents-nav__items
             .ii-contents-nav__items__list
               %ul.ii-contents-nav__items__list_items
@@ -89,4 +89,4 @@
       .ii-camera__btn__box
         .ii-camera__btn__box--text 出品
         = icon('fas', 'camera')
-  = render 'footer1'
+  = render 'layouts/footer1'
