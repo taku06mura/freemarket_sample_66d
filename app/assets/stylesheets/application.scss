@@ -1,10 +1,9 @@
- 
 @import "modules/header1.scss";
 @import "modules/footer1.scss";
-
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "items/index";
 
 body {
   background-color: rgb(245, 245, 245);
