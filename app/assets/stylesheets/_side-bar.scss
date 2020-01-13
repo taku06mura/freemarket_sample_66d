@@ -1,0 +1,60 @@
+.side-bar {
+  max-width: 280px;
+  margin-right: 40px;
+}
+.my-page {
+  &__list {
+    list-style: none;
+    &__contents {
+      background-color: white;
+      border: solid thin rgb(245, 245, 245);
+      &--link {
+        padding-left: 5px;
+        color: black;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+.merupay {
+  margin-top: 30px;
+  &__list {
+    list-style: none;
+    &__contents {
+      background-color: white;
+      border: solid thin rgb(245, 245, 245);
+      &--link {
+        padding-left: 5px;
+        color: black;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+        
+      }
+    }
+  }
+}
+.config {
+  margin-top: 30px;
+  &__list {
+    list-style: none;
+    &__contents {
+      background-color: white;
+      border: solid thin rgb(245, 245, 245);
+      &--link {
+        padding-left: 5px;
+        color: black;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+.fas.fa-chevron-right {
+  margin-right: 5px;
+  line-height: 24px;
+  color: rgb(245, 245, 245);
+}
