@@ -8,20 +8,21 @@
 |password|string|null: false|
 |nickname|string|null: false,index: true|
 ### Association
-- has_many :addresses dependent: :destroy
+- has_one :address dependent: :destroy
+- accepts_nested_attributes_for :address
 - has_many :credits dependent: :destroy
 - has_many :sns_users dependent: :destroy
 - has_many :items dependent: :destroy
 - has_many :comments dependent: :destroy
 - has_one :profile dependent: :destroy
-- has_one :personal_data dependent: :destroy
+- has_one :personal_datum dependent: :destroy
+- accepts_nested_attributes_for :address
 
-
-## creditsテーブル
+## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|customer|string|null: false, foreign_key: true|
+|customer_id|string|null: false, foreign_key: true|
 |card_id|string|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -45,7 +46,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false,index: true|
-|parent|integer||
+|parent_id|integer||
 ### Association
 - has_many :items
 
@@ -90,10 +91,10 @@
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|prefectures|string|null: false|
-|postal_code|string|null: false|
+|prefecture|string|null: false|
+|postal_code|integer|null: false|
 |municipality|string|null: false,index: true|
-|address|string|null: false|
+|house_number|string|null: false|
 |building_name|string||
 |user_id|integer|null: false,index: true|
 ### Association
@@ -102,7 +103,7 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
+|src|string|null: false|
 |item_id|integer|null: false|
 ### Association
 - belongs_to :item

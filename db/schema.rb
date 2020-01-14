@@ -10,6 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_01_14_044745) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "prefecture", null: false
+    t.integer "postal_code", null: false
+    t.string "municipality", null: false
+    t.string "house_number", null: false
+    t.string "building_name"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["municipality"], name: "index_addresses_on_municipality"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "personal_data", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "kana_first_name", null: false
+    t.string "kana_last_name", null: false
+    t.integer "birthday_year", null: false
+    t.integer "birthday_month", null: false
+    t.integer "birthday_day", null: false
+    t.string "phone_number", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["birthday_day"], name: "index_personal_data_on_birthday_day"
+    t.index ["birthday_month"], name: "index_personal_data_on_birthday_month"
+    t.index ["birthday_year"], name: "index_personal_data_on_birthday_year"
+    t.index ["kana_first_name"], name: "index_personal_data_on_kana_first_name"
+    t.index ["kana_last_name"], name: "index_personal_data_on_kana_last_name"
+    t.index ["phone_number"], name: "index_personal_data_on_phone_number"
+    t.index ["user_id"], name: "index_personal_data_on_user_id"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "nickname", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["nickname"], name: "index_users_on_nickname"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
 
 end
