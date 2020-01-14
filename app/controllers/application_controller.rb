@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
                                                                             :house_number,
                                                                             :building_name,
                                                                             :user_id]])
+  end
   before_action :basic_auth, if: :production?
 
   private

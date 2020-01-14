@@ -1,0 +1,44 @@
+%h2 Sign up
+= form_for @user, url: create_user_path do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :nickname
+    %br/
+    = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+  = f.fields_for :personal_datum do |fin|
+    .field
+      = fin.label :last_name
+      %br/
+      = fin.text_field :last_name, autocomplete: "last_name"
+    .field
+      = fin.label :first_name
+      %br/
+      = fin.text_field :first_name, autocomplete: "first_name"
+    .field
+      = fin.label :kana_last_name
+      %br/
+      = fin.text_field :kana_last_name, autocomplete: "kana_last_name"
+    .field
+      = fin.label :kana_first_name
+      %br/
+      = fin.text_field :kana_first_name, autocomplete: "kana_first_name"
+    .field
+      = fin.label :birthday
+      %br/
+      = fin.number_field :birthday_year, autocomplete: "birthday_year"
+      = fin.number_field :birthday_month, autocomplete: "birthday_month"
+      = fin.number_field :birthday_day, autocomplete: "birthday_day"
+  .actions
+    = f.submit "Next"
+= render "devise/shared/links"
