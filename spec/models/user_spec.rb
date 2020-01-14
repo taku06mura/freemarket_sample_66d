@@ -77,11 +77,12 @@ describe User do
       user.valid?
       expect(user.errors[:password]).to include("is invalid")
     end
+    
     # 12. passwordが7文字以上で数字のみの場合登録できないこと
     it "is invalid with a password that has more than 7 characters without number" do
       user = build(:user, password: "abcdefg", password_confirmation: "abcdefg")
       user.valid?
       expect(user.errors[:password]).to include("is invalid")
-  end
+    end
   end
 end

@@ -14,10 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def create_user
     @user = User.new(user_params)
-    # unless @user.valid?
-    #   flash.now[:alert] = @user.errors.full_messages
-    #   render :new and return
-    # end
     session[:user_params] = user_params
     session[:after_new_user] = user_params[:personal_datum_attributes]
     @user = User.new(session[:user_params])
@@ -47,9 +43,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(session[:user_params])
     @user.build_personal_datum(session[:after_create_phone])
     @user.build_address(user_params[:address_attributes])
-    @user.save
-    sign_in(:user, @user)
-    redirect_to root_path
+    
+    if @user.save
+      sign_in(:user, @user)
+      redirect_to root_path and return
+    else
+      render :new and return
+    end
   end
     
   # GET /resource/edit
