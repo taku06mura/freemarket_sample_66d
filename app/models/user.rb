@@ -6,7 +6,10 @@ class User < ApplicationRecord
 
   # validates :encrypted_password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i }
 
+  has_one :address, dependent: :destroy
+  accepts_nested_attributes_for :address
   has_one :personal_datum, dependent: :destroy
   accepts_nested_attributes_for :personal_datum
+  
   
 end

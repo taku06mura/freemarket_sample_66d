@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: [:new, :new_phone, :create_user, :create_phone, :create_address]
+  before_action :configure_sign_up_params, only: [:create_user, :create_phone, :save_user]
   before_action :create_user, only: :new_phone
   before_action :create_phone, only: :new_address
-  # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
  
@@ -36,24 +35,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:after_create_phone].merge!(session[:after_new_user])
     @user = User.new
     @user.build_personal_datum(session[:after_create_phone])
-    binding.pry
     render :new_address
   end
 
   def new_address
-    # @user.build_address
+    @user = User.new
+    @user.build_address
   end
 
-  def create_address
-    @user = User.new(session["devise.regist_data"]["user"])
-    @address = Address.new(address_params)
-    unless @address.valid?
-      flash.now[:alert] = @address.errors.full_messages
-      render :new_address and return
-    end
-    @user.build_address(@address.attributes)
+  def save_user
+    @user = User.new(session[:user_params])
+    @user.build_personal_datum(session[:after_create_phone])
+    @user.build_address(user_params[:address_attributes])
     @user.save
     sign_in(:user, @user)
+    redirect_to root_path
   end
     
   # GET /resource/edit
@@ -117,25 +113,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                                               :birthday_month, 
                                                               :birthday_day, 
                                                               :phone_number, 
-                                                              :user_id]
+                                                              :user_id],
+                                  address_attributes: [:prefecture, 
+                                                       :postal_code, 
+                                                       :municipality,
+                                                       :house_number,
+                                                       :building_name,
+                                                       :user_id]
                                 )
-  end
-
-  def personal_datum_params
-    params.require(:personal_datum_attributes).permit(:first_name, 
-                                           :last_name, 
-                                           :kana_first_name, 
-                                           :kana_last_name, 
-                                           :birthday_year, 
-                                           :birthday_month, 
-                                           :birthday_day, 
-                                           :phone_number,
-                                           :user_id
-                                          )
-  end
-
-  def address_params
-    params.require(:address).permit(:prefectures, :postal_code, :municipality, :address, :building_name, :user_id)
   end
 
   protected
@@ -150,6 +135,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                                                                     :birthday_day, 
                                                                                     :phone_number, 
                                                                                     :user_id]])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [address_attributes: [:prefecture, 
+                                                                            :postal_code, 
+                                                                            :municipality,
+                                                                            :house_number,
+                                                                            :building_name,
+                                                                            :user_id]])
   end
 
 end

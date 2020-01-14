@@ -31,6 +31,24 @@
       <%= fin.label :first_name %><br />
       <%= fin.text_field :first_name, autocomplete: "first_name" %>
     </div>
+
+    <div class="field">
+      <%= fin.label :kana_last_name %><br />
+      <%= fin.text_field :kana_last_name, autocomplete: "kana_last_name" %>
+    </div>
+
+    <div class="field">
+      <%= fin.label :kana_first_name %><br />
+      <%= fin.text_field :kana_first_name, autocomplete: "kana_first_name" %>
+    </div>
+
+    <div class="field">
+      <%= fin.label :birthday %><br />
+      <%= fin.number_field :birthday_year, autocomplete: "birthday_year" %>
+      <%= fin.number_field :birthday_month, autocomplete: "birthday_month" %>
+      <%= fin.number_field :birthday_day, autocomplete: "birthday_day" %>
+    </div>
+
   <% end %>
 
   <div class="actions">
