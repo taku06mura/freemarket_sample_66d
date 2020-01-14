@@ -1,4 +1,92 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.haml
-
-= link_to "logout", destroy_user_session_path, method: :delete
+.wrapper
+  = render 'layouts/header1'
+  .ii-top
+    .ii-menu
+      .ii-info 
+        = image_tag 'logo_red.svg', class: "ii-info__image"
+      .ii-tag
+        %h1.ii-tag--title 人気のカテゴリー
+        .ii-tag__categorys
+          %ul.ii-tag__categorys__list
+            %li.ii-tag__categorys__list__name レデイース
+            %li.ii-tag__categorys__list__name メンズ
+            %li.ii-tag__categorys__list__name ベビー
+      .ii-contents
+        .ii-contents-nav
+          .ii-contents-nav__name
+            %h1.ii-contents-nav__name--title 商品一覧
+            = link_to "もっとみる >", root_path, class: "ii-contents-nav__name--link"
+          .ii-contents-nav__items
+            .ii-contents-nav__items__list
+              %ul.ii-contents-nav__items__list__items
+                %li.ii-contents-nav__items__list__items__item
+                  .ii-contents-nav__items__list__items__item__link
+                    = link_to "", class: "ii-link" do
+                      %figure.ii-link__btn
+                        %figcaption
+                          %span
+                        .ii-link__btn__img
+                          %span
+                %li.ii-contents-nav__items__list__items__item
+                  .ii-contents-nav__items__list__items__item__link
+                    = link_to "", class: "ii-link" do
+                      %figure.ii-link__btn
+                        %figcaption
+                          %span
+                        .ii-link__btn__img
+                          %span
+                %li.ii-contents-nav__items__list__items__item
+                  .ii-contents-nav__items__list__items__item__link
+                    = link_to "", class: "ii-link" do
+                      %figure.ii-link__btn
+                        %figcaption
+                          %span
+                        .ii-link__btn__img
+                          %span
+                %li.ii-contents-nav__items__list__items__item
+                  .ii-contents-nav__items__list__items__item__link
+                    = link_to "", class: "ii-link" do
+                      %figure.ii-link__btn
+                        %figcaption
+                          %span
+                        .ii-link__btn__img
+                          %span
+                %li.ii-contents-nav__items__list__items__item
+                  .ii-contents-nav__items__list__items__item__link
+                    = link_to "", class: "ii-link" do
+                      %figure.ii-link__btn
+                        %figcaption
+                          %span
+                        .ii-link__btn__img
+                          %span
+                %li.ii-contents-nav__items__list__items__item
+                  .ii-contents-nav__items__list__items__item__link
+                    = link_to "", class: "ii-link" do
+                      %figure.ii-link__btn
+                        %figcaption
+                          %span
+                        .ii-link__btn__img
+                          %span
+                
+        .ii-contents
+        .ii-contents-nav
+          .ii-contents-nav__name
+            %h1.ii-contents-nav__name--title 商品一覧
+            = link_to "もっとみる >", root_path, class: "ii-contents-nav__name--link"
+          .ii-contents-nav__items
+            .ii-contents-nav__items__list
+              %ul.ii-contents-nav__items__list_items
+                %li.ii-contents-nav__items__list__items__item
+                  .ii-contents-nav__items__list__items__item__link
+                    = link_to "", class: "ii-link" do
+                      %figure.ii-link__btn
+                        %figcaption
+                          %span
+                        .ii-link__btn__img
+                          %span
+  .ii-camera
+    = link_to "", class: "ii-camera__btn" do
+      .ii-camera__btn__box
+        .ii-camera__btn__box--text 出品
+        = icon('fas', 'camera')
+  = render 'layouts/footer1'

@@ -1,0 +1,14 @@
+.aside
+  .aside__main
+    .aside__main__left
+      %h1 スマホでかんたんフリマアプリ
+      %h2 今すぐ無料ダウンロード！
+      .aside__main__left__api
+        = link_to root_path, class: ‘logo-red’ do
+          = image_tag ‘logo_red.svg’
+        = link_to root_path, class: ‘logo-app’ do
+          = image_tag ‘logo_white.svg’
+        = link_to root_path, class: ‘logo-google’ do
+          = image_tag ‘logo_white.svg’
+    .aside__main__right
+      = image_tag ‘image-bgi2.jpeg’, class: ‘image-bgi2

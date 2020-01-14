@@ -1,0 +1,12 @@
+@import "reset";
+@import "config/colors";
+@import "modules/header1.scss";
+@import "modules/footer1.scss";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "items/index";
+
+body {
+  background-color: $main_color;
+}
+ 

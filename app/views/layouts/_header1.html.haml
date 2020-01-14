@@ -1,0 +1,37 @@
+.header1
+  .header1-main
+    .header1-main__text
+      .header1-main__text__logo
+        = link_to root_path, class: 'fremalogo' do
+          = image_tag 'fmarket_logo_red.svg'
+      .header1-main__text__form
+        %input.search{placeholder: "何かお探しですか？", type: "search", name: "keyword"}/
+        %button.search-icon
+          = icon 'fas', 'search', class: 'search-button'
+    .header1-main__nav
+      .header1-main__nav__js
+        .header1-main__nav__js__links
+          = link_to root_path, class: "header1-main__nav__js__links__link"  do
+            = icon 'fas', 'list', class: 'navicon'
+            カテゴリーから探す
+        .header1-main__nav__js__links
+          = link_to root_path, class: "header1-main__nav__js__links__link"  do
+            = icon 'fas', 'tag', class: 'navicon'
+            ブランドから探す
+      %ul.header1-main__nav__menu
+        %li.header1-main__nav__menu__link
+          = link_to root_path, class: "header1-main__nav__menu__link--mypage"  do
+            = icon 'far', 'heart', class: 'menuicon'
+            いいね！一覧
+        %li.header1-main__nav__menu__link
+          = link_to root_path, class: "header1-main__nav__menu__link--mypage"  do
+            = icon 'far', 'bell', class: 'menuicon'
+            お知らせ
+        %li.header1-main__nav__menu__link
+          = link_to root_path, class: "header1-main__nav__menu__link--mypage"  do
+            = icon 'far', 'check', class: 'menuicon'
+            やることリスト
+        %li.header1-main__nav__menu__link
+          = link_to root_path, class: "header1-main__nav__menu__link--mypage"  do
+            = icon 'far', 'user', class: 'menuicon'
+            マイページ
