@@ -18,11 +18,11 @@
 - has_one :personal_datum dependent: :destroy
 - accepts_nested_attributes_for :address
 
-## creditsテーブル
+## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|customer|string|null: false, foreign_key: true|
+|customer_id|string|null: false, foreign_key: true|
 |card_id|string|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -46,7 +46,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false,index: true|
-|parent|integer||
+|parent_id|integer||
 ### Association
 - has_many :items
 
@@ -103,7 +103,7 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
+|src|string|null: false|
 |item_id|integer|null: false|
 ### Association
 - belongs_to :item
