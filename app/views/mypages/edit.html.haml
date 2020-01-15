@@ -1,0 +1,29 @@
+= render 'shared/header1'
+
+-# = render 'shared/side-bar'
+
+%main.main
+  = render 'shared/side-bar'
+  .contents
+    .content__plf-chapter
+      .content__plf-chapter__head
+        プロフィール
+      .content__plf-chapter__form
+        %input.plf-name{:name => "__csrf_value", :type => "hidden", :value => "afaa0b0e493b55b0192dcc40796f625d2f59d378bb2d73e2fd9f0ee0caed22a14314fbdc2ad1d46c60a5af218275ed680bff45a4a5916b84920993d527e0392eb"}/
+        .content__plf-chapter__form__icon
+          .content__plf-chapter__form__icon__fgure
+            %img.plf-img{:height => "60", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "60"}/
+
+            %input.content__plf-chapter__form__icon__name{:name => "nickname", :placeholder => "例)AYA☆セール中", :type => "text", :value => "ゆたか"}/
+        .content__plf-chapter__form__profile
+          %textarea.plf-textarea{:name => "introduction", :placeholder => "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+          
+          %input.plf-input2{:name => "after_save_callback", :type => "hidden", :value => "https://www.mercari.com/jp/mypage/profile/"}/
+
+          %button.plf-btn{:type => "submit"} 変更する
+    
+  = render 'shared/camera'
+  
+
+
+= render 'shared/footer1'

@@ -8,7 +8,11 @@
 @import "items/new";
 @import "modules/header2.scss";
 @import "modules/footer2.scss";
-
+@import "mypages.scss";
+@import "side-bar.scss";
+@import "main.scss";
+@import "contents.scss";
+@import "modules/camera.scss";
 
 body {
   background-color: $main_color;
