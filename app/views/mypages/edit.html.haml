@@ -10,13 +10,12 @@
         %input.plf-name{name: "__csrf_value", type: "hidden", value: ""}/
         .content__plf-chapter__form__icon
           .content__plf-chapter__form__icon__fgure
-            %img.plf-img{height: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60"}/
-
+            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "plf-img"
             %input.content__plf-chapter__form__icon__name{name: "nickname", placeholder: "例)AYA☆セール中", type: "text", value: "ゆたか"}/
         .content__plf-chapter__form__profile
           %textarea.plf-textarea{name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
           
-          %input.plf-input2{name: "after_save_callback", type: "hidden", value: "https://www.mercari.com/jp/mypage/profile/"}/
+          %input.plf-input2{name: "after_save_callback", type: "hidden", value: ""}/
 
           %button.plf-btn{type: "submit"} 変更する
     
