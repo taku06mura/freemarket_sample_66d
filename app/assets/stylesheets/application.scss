@@ -1,4 +1,4 @@
-@import "reset";
+@import "modules/reset";
 @import "config/colors";
 @import "modules/header1.scss";
 @import "modules/footer1.scss";
@@ -6,6 +6,15 @@
 @import "font-awesome";
 @import "items/index";
 @import "user-registration-new";
+@import "items/new";
+@import "modules/header2.scss";
+@import "modules/footer2.scss";
+@import "mypages/mypages.scss";
+@import "modules/side-bar.scss";
+@import "modules/main.scss";
+@import "modules/contents.scss";
+@import "modules/camera.scss";
+@import "mypages/logout.scss";
 
 body {
   background-color: $main_color;
