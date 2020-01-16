@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     end
   end
   resources :mypages, only:[:edit,] do
+    collection do
+      get 'logout'
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
