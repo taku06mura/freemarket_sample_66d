@@ -1,0 +1,29 @@
+.contents{
+
+  padding: 0 0 40px;
+  .content__ml-chapter{
+    margin: 0;
+    background: #fff;
+    padding: 0;
+    
+    &__form{
+      padding: 64px;
+
+      margin: 0;
+      &__inner{
+        max-width: 320px;
+        margin: 0 auto;
+        padding: 0;
+        .ml-btn-red{
+          margin: 0;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
