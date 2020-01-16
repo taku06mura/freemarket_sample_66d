@@ -1,0 +1,139 @@
+.urn-main{
+  width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  &__head{
+    display: block;
+    height: 32px;
+    padding: 33px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+  }
+  &__forms{
+    display: block;
+    padding: 24px 16px 40px;
+    border-top: 1px solid #f5f5f5;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(245, 245, 245);
+    &__single-content{
+      margin: 0 auto;
+      max-width: 343px;
+      font-size: 14px;
+      &__single-text{
+        display: block;
+        text-align: center;
+        margin-top: 40px;
+      }
+      &__group{
+        margin-top: 24px; 
+        &__urn-single-select-box{
+          width: calc(30% - 17px);
+        }
+        h3{
+          font-size: 16px;
+          font-weight: bold;
+        }
+        p{
+          font-size: 14px;
+        }
+        a{
+          text-decoration: none;
+        }
+      }
+      &__term{
+        padding: 8px 16px;
+        background-color: #f5f5f5;;
+        color:#888888;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.urn-form{
+  display: block;
+  height: 48px;
+  width: 100%;
+  padding: 10px 16px 8px;
+  margin-top: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  box-sizing: border-box;
+  &--half{
+    display: inline-block;
+    width: calc(50% - 10px);
+    margin: 8px 8px 0 0;
+  }
+}
+
+.urn-form-info-text{
+  color: #888;
+  font-size: 14px;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.urn-require{
+  display: inline-block;
+  border-radius: 2px;
+  background-color: #ea352d;
+  color: #fff;
+  padding: 2px 4px;
+}
+
+.urn-label{
+  font-weight: 600;
+  margin-left: 8px;
+  display: inline-block;
+}
+
+.urn-birthday-select-wrap{
+  display: inline-block;
+  padding: 10px 16px 8px;
+  height: 48px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-appearance: none; 
+  -moz-appearance: none; 
+  appearance: none; 
+}
+.urn-select-box{
+  display: inline-block;
+  height: 48px;
+  width: calc(27% - 2px);
+}
+.icon-relative {
+  position: relative;
+  &--absolute {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    z-index: 1;
+    color: #888;
+    font-size: 20px;
+    background-color: white;
+    transform: translate(0, -50%);
+  }
+}
+
+.urn-btn{
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.urn-text-right{
+  text-align: right;
+}
