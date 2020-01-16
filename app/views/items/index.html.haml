@@ -1,5 +1,5 @@
 .wrapper
-  = render 'layouts/header1'
+  = render 'shared/header1'
   .ii-top
     .ii-menu
       .ii-info 
@@ -85,8 +85,8 @@
                         .ii-link__btn__img
                           %span
   .ii-camera
-    = link_to new_item_path, class: "ii-camera__btn" do
+    = link_to items_path, class: "ii-camera__btn" do
       .ii-camera__btn__box
         .ii-camera__btn__box--text 出品
         = icon('fas', 'camera')
-  = render 'layouts/footer1'
+  = render 'shared/footer1'
