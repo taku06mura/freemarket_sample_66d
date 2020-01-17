@@ -11,6 +11,17 @@ Rails.application.routes.draw do
     post 'save_user', to: 'users/registrations#save_user'
   end
   root "items#index"
-  resources :items, only: [:index, :show]
+  resources :items, only: [:index, :show,] do
+    collection do
+      get 'new' 
+    end
+  end
+  resources :mypages, only: [:index, :edit,] do
+    collection do
+      get 'logout'
+    end
+  end
+  resources :purchase, only:[:index] do
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
