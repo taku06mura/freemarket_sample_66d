@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_15_070650) do
+ActiveRecord::Schema.define(version: 2020_01_15_085947) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "prefecture", null: false
@@ -31,6 +31,33 @@ ActiveRecord::Schema.define(version: 2020_01_15_070650) do
     t.datetime "updated_at", null: false
     t.string "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "source"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_images_on_item_id"
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "name", null: false
+    t.string "item_discription", null: false
+    t.integer "category1_id", null: false
+    t.integer "category2_id", null: false
+    t.integer "category3_id", null: false
+    t.string "size", null: false
+    t.string "brand_name"
+    t.string "quality", null: false
+    t.integer "price", null: false
+    t.string "carriage_fee", null: false
+    t.string "prefecture", null: false
+    t.string "delivery", null: false
+    t.string "days", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "personal_data", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -68,4 +95,5 @@ ActiveRecord::Schema.define(version: 2020_01_15_070650) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "images", "items"
 end
