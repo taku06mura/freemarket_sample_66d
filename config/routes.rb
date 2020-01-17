@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get 'new' 
     end
   end
-  resources :mypages, only:[:edit,] do
+  resources :mypages, only: [:index, :edit,] do
     collection do
       get 'logout'
     end
