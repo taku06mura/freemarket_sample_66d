@@ -1,2 +1,270 @@
-%h1 Items#show
-%p Find me in app/views/items/show.html.haml
+.wrapper
+
+  = render 'layouts/header1'
+
+
+
+  .is-item-box
+    %h1.is-item-name 商品名
+    .is-item-box__main-content
+
+      .is__photo
+        .is__photo__place
+          .is__photo__place__sample
+            .is__photo__place__sample__stage
+              .is__photo__place__sample__stage__in
+                .is__photo__place__sample__stage__in__img
+                  = image_tag 'frema66img-sample1.jpeg'
+              .is__photo__place__sample__stage__in
+                .is__photo__place__sample__stage__in__img
+              .is__photo__place__sample__stage__in
+                .is__photo__place__sample__stage__in__img
+              .is__photo__place__sample__stage__in
+                .is__photo__place__sample__stage__in__img
+              .is__photo__place__sample__stage__in
+                .is__photo__place__sample__stage__in__img
+              .is__photo__place__sample__stage__in
+                .is__photo__place__sample__stage__in__img
+              .is__photo__place__sample__stage__in
+                .is__photo__place__sample__stage__in__img
+              .is__photo__place__sample__stage__in
+                .is__photo__place__sample__stage__in__img
+              .is__photo__place__sample__stage__in
+                .is__photo__place__sample__stage__in__img
+              .is__photo__place__sample__stage__in
+                .is__photo__place__sample__stage__in__img
+          .is__photo__place__disabled
+          .is__photo__place__dots
+            .is__photo__place__dots__inner
+            .is__photo__place__dots__inner
+            .is__photo__place__dots__inner
+            .is__photo__place__dots__inner
+            .is__photo__place__dots__inner
+            .is__photo__place__dots__inner
+            .is__photo__place__dots__inner
+            .is__photo__place__dots__inner
+            .is__photo__place__dots__inner
+            .is__photo__place__dots__inner
+
+      %table.is__table
+        %tbody
+          %tr.is__table-record
+            %th.is__table-header 出品者
+            %td.is__table-data
+              .is__table-data__username お名前
+              .is__table__user-rating
+                = icon 'fas', 'laugh', class: 'is__table__user-rating__laugh'
+              .is__table__user-rating
+                = icon 'fas', 'meh', class: 'is__table__user-rating__meh'
+              .is__table__user-rating
+                = icon 'fas', 'frown', class: 'is__table__user-rating__frown'
+          %tr.is__table-record
+            %th.is__table-header カテゴリー
+            %td.is__table-data
+              = link_to "大カテゴリ", root_path, class: 'is__table-data__category'
+              = link_to root_path, class: 'is__table-data__category' do
+                = icon 'fas', 'angle-right'
+                中カテゴリ
+              = link_to root_path, class: 'is__table-data__category' do
+                = icon 'fas', 'angle-right'
+                小カテゴリ
+          %tr.is__table-record
+            %th.is__table-header ブランド
+            %td.is__table-data #
+          %tr.is__table-record
+            %th.is__table-header 商品のサイズ
+            %td.is__table-data #
+          %tr.is__table-record
+            %th.is__table-header 商品の状態
+            %td.is__table-data #
+          %tr.is__table-record
+            %th.is__table-header 配送料の負担
+            %td.is__table-data #
+          %tr.is__table-record
+            %th.is__table-header 配送の方法
+            %td.is__table-data #
+          %tr.is__table-record
+            %th.is__table-header 配送元地域
+            %td.is__table-data 
+              = link_to "都道府県名", root_path, class: 'is__table-data__enum'
+          %tr.is__table-record
+            %th.is__table-header 発送日の目安
+            %td.is__table-data #
+
+    .is-item-box__price-box
+      %span.is-item-price-large ¥###
+      %span.is-item-tax （税込）
+      %span.is-item-stopfee 送料込みor着払い
+
+    = link_to root_path , class: 'is-item-buy-btn' do
+      購入画面に進む
+
+    %p.is-item-box__error-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+
+    .is-item-box__description
+      %p.is-item-box__description__inner ユーザーの商品説明が入る
+
+    .is-item-box__button
+      .is-item-box__button__left
+        %button.is-button.is-button__like
+          = icon 'far', 'heart', class: 'is-icon'
+          %span.is__writing いいね！
+          %span.is__num num
+        = link_to root_path, class: 'is-button is-button__report' do
+          = icon 'far', 'flag', class: 'is-icon'
+          %span.is__writing 不適切な商品の報告
+      .is-item-box__button__right
+        = link_to root_path, class: 'is-safety' do
+          = icon 'fas', 'lock', class: 'is-icon'
+          %span.is__writing あんしん・あんぜんへの取り組み
+
+
+
+  .is-message-box
+    .is-message-box__container
+      .is-message-box__container__content
+        %form.is-message-form
+          %p.is-message-form__note 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %textarea.is-message-form__note__area
+        %button.is-comment-btn
+          %span.is-btn__comment コメントする
+
+  %ul.is-next-item
+    %li.is-next-item__left
+      = link_to root_path, class: 'is-randomitem' do
+        = icon 'fas', 'angle-left', class: 'is-icon-left'
+        前の商品
+    %li.is-next-item__right
+      = link_to root_path, class: 'is-randomitem' do
+        次の商品
+        = icon 'fas', 'angle-right', class: 'is-icon-right'
+
+
+
+  .is-media-links
+    %ul.is-media-links__case
+      %li.is-media-links__case__app
+        =link_to "https://www.facebook.com/", class: "is-app-btn" do
+          = icon 'fab', 'facebook-square', class: 'is-facebook'
+      %li.is-media-links__case__app
+        =link_to "https://twitter.com/", class: "is-app-btn" do
+          = icon'fab', 'twitter', class: 'is-twitter'
+      %li.is-media-links__case__app__last
+        =link_to "https://www.instagram.com/", class: "is-app-btn" do
+          = icon 'fab', 'instagram', class: 'is-instagram'
+
+
+
+  .is-user-items
+    %section.is-user-items__others
+      %h2.is-user-items__others__name 
+        = link_to "ユーザーさんのその他の出品", root_path
+      .is-user-items__others__exhibit
+
+        %section.is-user-items__others__exhibit__boxes
+          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
+            %figure.is-user-items__others__exhibit__boxes__photo
+              = image_tag 'frema66img-sample2.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
+            .is-user-items__others__exhibit__boxes__body
+              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
+              .is-user-items__others__exhibit__boxes__body__price ¥###
+
+        %section.is-user-items__others__exhibit__boxes
+          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
+            %figure.is-user-items__others__exhibit__boxes__photo
+              = image_tag 'frema66img-sample2.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
+            .is-user-items__others__exhibit__boxes__body
+              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
+              .is-user-items__others__exhibit__boxes__body__price ¥###
+
+        %section.is-user-items__others__exhibit__boxes
+          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
+            %figure.is-user-items__others__exhibit__boxes__photo
+              = image_tag 'frema66img-sample2.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
+            .is-user-items__others__exhibit__boxes__body
+              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
+              .is-user-items__others__exhibit__boxes__body__price ¥###
+
+        %section.is-user-items__others__exhibit__boxes
+          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
+            %figure.is-user-items__others__exhibit__boxes__photo
+              = image_tag 'frema66img-sample2.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
+            .is-user-items__others__exhibit__boxes__body
+              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
+              .is-user-items__others__exhibit__boxes__body__price ¥###
+
+        %section.is-user-items__others__exhibit__boxes
+          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
+            %figure.is-user-items__others__exhibit__boxes__photo
+              = image_tag 'frema66img-sample2.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
+            .is-user-items__others__exhibit__boxes__body
+              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
+              .is-user-items__others__exhibit__boxes__body__price ¥###
+
+        %section.is-user-items__others__exhibit__boxes
+          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
+            %figure.is-user-items__others__exhibit__boxes__photo
+              = image_tag 'frema66img-sample2.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
+            .is-user-items__others__exhibit__boxes__body
+              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
+              .is-user-items__others__exhibit__boxes__body__price ¥###
+
+    %section.is-user-items__samegenre
+      %h2.is-user-items__others__name
+        = link_to "同一ジャンルのその他の出品", root_path
+      .is-user-items__others__exhibit
+
+        %section.is-user-items__others__exhibit__boxes
+          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
+            %figure.is-user-items__others__exhibit__boxes__photo
+              = image_tag 'frema66img-sample3.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
+            .is-user-items__others__exhibit__boxes__body
+              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
+              .is-user-items__others__exhibit__boxes__body__price ¥###
+
+        %section.is-user-items__others__exhibit__boxes
+          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
+            %figure.is-user-items__others__exhibit__boxes__photo
+              = image_tag 'frema66img-sample3.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
+            .is-user-items__others__exhibit__boxes__body
+              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
+              .is-user-items__others__exhibit__boxes__body__price ¥###
+
+        %section.is-user-items__others__exhibit__boxes
+          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
+            %figure.is-user-items__others__exhibit__boxes__photo
+              = image_tag 'frema66img-sample3.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
+            .is-user-items__others__exhibit__boxes__body
+              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
+              .is-user-items__others__exhibit__boxes__body__price ¥###
+
+        %section.is-user-items__others__exhibit__boxes
+          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
+            %figure.is-user-items__others__exhibit__boxes__photo
+              = image_tag 'frema66img-sample3.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
+            .is-user-items__others__exhibit__boxes__body
+              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
+              .is-user-items__others__exhibit__boxes__body__price ¥###
+
+        %section.is-user-items__others__exhibit__boxes
+          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
+            %figure.is-user-items__others__exhibit__boxes__photo
+              = image_tag 'frema66img-sample3.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
+            .is-user-items__others__exhibit__boxes__body
+              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
+              .is-user-items__others__exhibit__boxes__body__price ¥###
+
+        %section.is-user-items__others__exhibit__boxes
+          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
+            %figure.is-user-items__others__exhibit__boxes__photo
+              = image_tag 'frema66img-sample3.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
+            .is-user-items__others__exhibit__boxes__body
+              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
+              .is-user-items__others__exhibit__boxes__body__price ¥###
+
+
+
+
+  = render 'layouts/footer1'
+
+  -# = icon 'fas', 'angle-right'
