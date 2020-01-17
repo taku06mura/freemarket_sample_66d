@@ -10,6 +10,10 @@
     font-size: 22px;
     font-weight: bold;
     text-align: center;
+    &--phone{
+      font-size: 18px;
+      padding: 16px;
+    }
   }
   &__forms{
     display: block;
@@ -29,7 +33,11 @@
       }
       &__group{
         margin-top: 24px; 
+        &--top{
+          margin-top: 0;
+        }
         &__urn-single-select-box{
+          margin-top: 8px;
           width: calc(30% - 17px);
         }
         h3{
@@ -70,6 +78,11 @@
     width: calc(50% - 10px);
     margin: 8px 8px 0 0;
   }
+  &--select{
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    appearance: none; 
+  }
 }
 
 .urn-form-info-text{
@@ -85,6 +98,9 @@
   background-color: #ea352d;
   color: #fff;
   padding: 2px 4px;
+  &--any{
+    background-color: gray;
+  }
 }
 
 .urn-label{
@@ -98,6 +114,7 @@
   padding: 10px 16px 8px;
   height: 48px;
   width: 100%;
+  background: #fff;
   box-sizing: border-box;
   -webkit-appearance: none; 
   -moz-appearance: none; 
@@ -107,6 +124,14 @@
   display: inline-block;
   height: 48px;
   width: calc(27% - 2px);
+  box-sizing: border-box;
+  &--full-width{
+    width: 100%;
+  }
+  &--expiration{
+    width: 35%;
+    margin-top: 8px;
+  }
 }
 .icon-relative {
   position: relative;
@@ -132,8 +157,16 @@
   font-size: 14px;
   text-align: center;
   margin-top: 24px;
+  text-decoration: none;
 }
 
 .urn-text-right{
   text-align: right;
+}
+
+.urn-main--phone{
+  p{
+    display: block;
+    margin-top: 8px;
+  }
 }

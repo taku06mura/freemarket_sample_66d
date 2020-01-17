@@ -43,14 +43,15 @@
 -#     = f.submit "Next"
 -# = render "devise/shared/links"
 
+= render "shared/header2.html.haml"
 .urn-header
 .urn-main 
   .urn-main__head
     %h2 会員情報入力
   .urn-main__forms
     .urn-main__forms__single-content
-      = form_for @user, url: create_user_path do |f|
-        .urn-main__forms__single-content__group
+      = form_for @user, url: create_user_path, method: :post do |f|
+        .urn-main__forms__single-content__group.urn-main__forms__single-content__group--top
           .urn-label  
             ニックネーム
           .urn-require
@@ -102,20 +103,20 @@
                 年
                 .urn-select-box.icon-relative
                   %i.icon-relative--absolute.fas.fa-angle-down
-                  = fin.select :birthday_year, options_for_select((1..12).to_a),{}, prompt: "--",  class: "urn-birthday-select-wrap"
+                  = fin.select :birthday_month, options_for_select((1..12).to_a),{}, prompt: "--",  class: "urn-birthday-select-wrap"
                 月
                 .urn-select-box.icon-relative
                   %i.icon-relative--absolute.fas.fa-angle-down
-                  = fin.select :birthday_year, options_for_select((1..31).to_a),{}, prompt: "--", class: "urn-birthday-select-wrap"
+                  = fin.select :birthday_day, options_for_select((1..31).to_a),{}, prompt: "--", class: "urn-birthday-select-wrap"
                 日
           %p.urn-form-info-text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
         .urn-main__forms__single-content
           %p.urn-main__forms__single-content__single-text 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
-          = f.submit "Next", class: "urn-btn"
+          = f.submit "次へ進む", class: "urn-btn"
           .urn-main__forms__single-content__group.urn-text-right
             = link_to "#" do
               本人情報の登録について
               %i.fas.fa-angle-right
           .urn-main__forms__single-content__group.urn-main__forms__single-content__term
             This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
-
+= render "shared/footer2.html.haml"

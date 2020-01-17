@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get 'new_phone', to: 'users/registrations#new_phone'
     post 'create_user', to: 'users/registrations#create_user'
     post 'create_phone', to: 'users/registrations#create_phone'
+    post 'create_address', to: 'users/registrations#create_address'
+    get 'new_card', to: 'users/registrations#new_card'
     post 'save_user', to: 'users/registrations#save_user'
   end
   root "items#index"

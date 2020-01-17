@@ -1,0 +1,13 @@
+= render "shared/header2.html.haml"
+.urn-header
+.urn-main 
+  .urn-main__head
+    %h2 会員登録完了
+  .urn-main__forms
+    .urn-main__forms__single-content
+      %p.urn-main__forms__single-content__single-text 
+        ありがとうございます。
+        %br
+        会員登録が完了しました。
+      = link_to "メルカリをはじめる", root_path, method: :get, class: "urn-btn"
+= render "shared/footer2.html.haml"
