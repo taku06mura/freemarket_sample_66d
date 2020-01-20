@@ -54,7 +54,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(session[:user_params])
     @user.build_personal_datum(session[:after_create_phone])
     @user.build_address(session[:after_create_address])
-    binding.pry
     if @user.save
       sign_in(:user, @user)
       render :complete
