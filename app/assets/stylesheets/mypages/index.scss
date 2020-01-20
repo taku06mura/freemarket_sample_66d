@@ -1,0 +1,202 @@
+.contents {
+  width: 700px;
+}
+  
+.us-user-icon {
+  height: 200px;
+  padding: 20x;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoLCsF7dBsbn7Q7b1B21yLPYvrETRACaBRAndAnsLJPHB6BNLx&s');
+  background-size: cover;
+  text-align: center;
+  position: relative;
+  &__details {
+    color: #333;
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    text-decoration: none;
+    &__image {
+      overflow: hidden;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      border-radius: 50%
+    }
+    &__name {
+      font-size: 14px;
+      margin: 8px;
+    }
+    &__reviwes {
+      margin: 8px 0 0;
+      &__value {
+        display: inline-block;
+        font-size: 14px;
+        &__bold{
+          margin: 0 0 0 8px;
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+      &__number {
+        font-size: 14px;
+        margin: 0 0 0 16px;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.us-notice {
+  margin: 0;
+  background: #fff;
+  &__tabs {
+    border: 0;
+    background: #eee;
+    font-size: 0;
+    a {
+      position: relative;
+      display: block;
+      color: #333;
+      font-size: 16px;
+      line-height: 72px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+  &__tab {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    &--active {
+      background: #fff;
+      a{
+        border-top: 2px solid #ea352d;
+      }
+    }
+  }
+    
+  
+  &__item {
+    display: block;
+    &__list {
+      border-bottom: 1px solid #eee;
+      &__unit {
+        display: block;
+        padding: 16px;
+        color: #333;
+        position: relative;
+        display: flex;
+        min-height: 80px;
+        &__icon {
+          overflow: hidden;
+          float: left;
+          width: 48px;
+          height: 48px;
+        }
+        &__body {
+          display: block;
+          height: 56px;
+          margin: 0 auto;
+          color: #333;
+          margin: 0 40px 0 68px;
+          position: absolute;
+          &__text {
+            overflow: hidden;
+            display: block;
+            display: -webkit-box;
+            max-height: 4.4em;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            line-height: 1.5;
+          }
+          &__time {
+            display: inline-block;
+            color: #888;
+            .us-time-icon {
+              margin-right: 8px;
+              font-size: 16px;
+              vertical-align: middle;
+            }
+          }
+        }  
+        &__chevron-icon {
+          position: absolute;
+          top: 50%;
+          right: 16px;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+        }
+      }
+    }
+    &__go {
+      padding: 16px;
+      &__list {
+        display: block;
+        height: 56px;
+        margin: 0 auto;
+        background: #eee;
+        color: #333;
+        line-height: 56px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.us-transaction {
+  margin: 40px 0 0;
+  background: #fff;
+  &__tab-head {
+    background: #fafafa;
+    font-size: 16px;
+    line-height: 72px;
+    padding: 0 16px;
+    font-weight: bold;
+  }
+  &__tabs {
+    border: 0;
+    background: #eee;
+    font-size: 0;
+    a {
+      position: relative;
+      display: block;
+      color: #333;
+      font-size: 16px;
+      line-height: 72px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+  &__tab {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    &--active {
+      background: #fff;
+      a {
+        border-top: 2px solid #ea352d;
+      }
+    }
+  }
+  &__items {
+    display: block;
+    position: relative;
+    &__not-found {
+      padding: 160px 0 60px;
+      background: url("logo_gray.svg");
+      background-repeat: no-repeat;
+      background-position: center 40px;
+      background-size: 100px 95px;
+      text-align: center;
+      font-size: 16px;
+      color: #ccc;
+    }
+  }
+}
