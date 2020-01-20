@@ -1,31 +1,3 @@
--# %h2 address
--# = form_for @user, url: save_user_path do |f|
--#   = render "devise/shared/error_messages", resource: resource
--#   = f.fields_for :address_attributes do |fin|
--#     .field
--#       = fin.label :prefecture
--#       %br/
--#       = fin.text_field :prefecture, autocomplete: "prefecture"
--#     .field
--#       = fin.label :postal_code
--#       %br/
--#       = fin.number_field :postal_code, autocomplete: "postal_code"
--#     .field
--#       = fin.label :municipality
--#       %br/
--#       = fin.text_field :municipality, autocomplete: "municipality"
--#     .field
--#       = fin.label :house_number
--#       %br/
--#       = fin.text_field :house_number, autocomplete: "house_number"
--#     .field
--#       = fin.label :building_name
--#       %br/
--#       = fin.text_field :building_name, autocomplete: "building_name"
--#   .actions
--#     = f.submit "Next"
--# = render "devise/shared/links"
-
 = render "shared/header2.html.haml"
 .urn-header
 .urn-main 
