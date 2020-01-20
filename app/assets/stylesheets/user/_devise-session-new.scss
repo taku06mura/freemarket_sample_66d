@@ -1,0 +1,99 @@
+.dsn-main{
+  width: 456px;
+  margin: 0 auto;
+  background-color: #fff;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  &__no-account{
+    padding: 40px 64px;
+    border-bottom: 1px solid #f5f5f5;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(245, 245, 245);
+    p{
+      font-size: 14px;
+      display: block;
+      text-align: center;
+    }
+  }
+  &__login_form{
+    display: block;
+    padding: 32px 64px;
+  }
+  &__forms{
+    display: block;
+    padding: 24px 64px;
+    a{
+      display: block;
+      margin-top: 40px;
+      text-align: left;
+      font-size: 14px;
+      text-decoration: none;
+    }
+  }
+}
+.dsn-form{
+  display: block;
+  height: 48px;
+  width: 100%;
+  padding: 10px 16px 8px;
+  margin-top: 24px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  box-sizing: border-box;
+  &--top{
+    margin-top: 0;
+  }
+}
+
+.dsn-btn{
+  display: block;
+  color: #fff;
+  height: 48px;
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+  line-height: 48px;
+  margin-top: 24px;
+  text-decoration: none;
+  position: relative;
+  &--no-account{
+    height: 40px;
+    line-height: 40px;
+    margin-top: 8px;
+    background-color: #0099e8;
+    border: 1px solid #0099e8;
+  }
+  &--facebook{
+    margin: 0;
+    background-color: #385185;
+    .dsn-icon{
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translate(0, -50%);
+      color: #fff;
+      
+    }
+  }
+  &--google{
+    margin-top: 8px;
+    background-color: #fff;
+    border: 1px solid #979797;
+    color: #333;
+    box-sizing: border-box;
+    .dsn-icon{
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+  }
+  &--next{
+      margin-top: 24px;
+      background-color: #ea352d;
+      border: 1px solid #ea352d;
+  }
+}
