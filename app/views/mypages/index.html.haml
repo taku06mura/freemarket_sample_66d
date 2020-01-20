@@ -1,0 +1,115 @@
+= render 'shared/header1'
+%main.main
+  = render 'shared/side-bar'
+
+  .contents
+    %section.us-user-icon
+      = link_to '#', class: "us-user-icon__details" do
+        = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "us-user-icon__details__image"
+        .us-user-icon__details__name
+          taku@06          
+        .us-user-icon__details__reviwes
+          .us-user-icon__details__reviwes__value
+            評価
+            %span.bold
+              0
+          .us-user-icon__details__reviwes__number
+            出品数
+            %span.bold
+              0
+
+
+    
+    %section.us-notice
+      %ul.us-notice__tabs
+        %li.us-notice__tab.us-notice__tab--active
+          %h3
+            = link_to '#', class: "us-notice__tab__notification" do
+              お知らせ
+        %li.us-notice__tab
+          %h3  
+            = link_to '#', class: "us-notice__tab__to-do" do
+              やることリスト
+    
+      
+      %ul.us-notice__item
+        %li.us-notice__item__list   
+          = link_to '#', class: "us-notice__item__list__unit" do
+            = image_tag 'logo_red.svg', class: "us-notice__item__list__unit__icon"
+            .us-notice__item__list__unit__body
+              .us-notice__item__list__unit__body__text
+                《ご登録記念》¥1,000の商品を「実質1円」でご購入いただけます！
+              .us-notice__item__list__unit__body__time
+                = icon 'far', 'clock'
+                10時間前
+            = icon 'fas', 'chevron-right', class: "us-notice__item__list__unit__chevron-icon"
+        
+        %li.us-notice__item__list
+          = link_to '#', class: "us-notice__item__list__unit" do
+            = image_tag 'logo_red.svg', class: "us-notice__item__list__unit__icon"
+            .us-notice__item__list__unit__body
+              .us-notice__item__list__unit__body__text
+                明日、P999還元クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+              .us-notice__item__list__unit__body__time
+                = icon 'far', 'clock'
+                10時間前
+            = icon 'fas', 'chevron-right', class: "us-notice__item__list__unit__chevron-icon"
+        
+        %li.us-notice__item__list
+          = link_to '#', class: "us-notice__item__list__unit" do
+            = image_tag 'logo_red.svg', class: "us-notice__item__list__unit__icon"
+            .us-notice__item__list__unit__body
+              .us-notice__item__list__unit__body__text
+                《15秒！かんたん出品するだけ》最大1,000円分のポイントがもらえるチャンス！
+              .us-notice__item__list__unit__body__time
+                = icon 'far', 'clock'
+                10時間前
+            = icon 'fas', 'chevron-right', class: "us-notice__item__list__unit__chevron-icon"
+        
+        %li.us-notice__item__list
+          = link_to '#', class: "us-notice__item__list__unit" do
+            = image_tag 'logo_red.svg', class: "us-notice__item__list__unit__icon"
+            .us-notice__item__list__unit__body
+              .us-notice__item__list__unit__body__text
+                3日後、P999還元クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+              .us-notice__item__list__unit__body__time
+                = icon 'far', 'clock'
+                10時間前
+            = icon 'fas', 'chevron-right', class: "us-notice__item__list__unit__chevron-icon"
+        
+        %li.us-notice__item__list
+          = link_to '#', class: "us-notice__item__list__unit" do
+            = image_tag 'logo_red.svg', class: "us-notice__item__list__unit__icon"
+            .us-notice__item__list__unit__body
+              .us-notice__item__list__unit__body__text
+                《ご登録記念》¥1,000の商品を「実質1円」でご購入いただけます！
+              .us-notice__item__list__unit__body__time
+                = icon 'far', 'clock', class: "us-time-icon"
+                10時間前
+            = icon 'fas', 'chevron-right', class: "us-notice__item__list__unit__chevron-icon"
+        
+        %li.us-notice__item__go
+          = link_to '#', class: "us-notice__item__go__list" do
+            一覧を見る
+
+    
+    
+    %section.us-transaction
+      .us-transaction__tab-head
+        購入した商品
+      %ul.us-transaction__tabs
+        %li.us-transaction__tab.us-transaction__tab--active
+          %h3
+            = link_to '#', class: "mypage-content__tab__nowadays" do
+              取引中
+        %li.us-transaction__tab
+          %h3
+            = link_to '#', class: "mypage-content__tab__past" do
+              過去の取引
+      %ul.us-transaction__items
+        %li.us-transaction__items__not-found
+          取引中の商品がありません
+        
+    = render 'shared/camera'
+= render 'shared/footer1'
+

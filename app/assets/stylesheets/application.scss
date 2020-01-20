@@ -7,6 +7,7 @@
 @import "items/index";
 @import "user/user-registration-new";
 @import "user/devise-session-new";
+@import "modules/show.scss";
 @import "items/new";
 @import "modules/header2.scss";
 @import "modules/footer2.scss";
@@ -16,6 +17,8 @@
 @import "modules/contents.scss";
 @import "modules/camera.scss";
 @import "mypages/logout.scss";
+@import "mypages/index.scss";
+@import "purchase/purchase.scss";
 
 body {
   background-color: $main_color;
