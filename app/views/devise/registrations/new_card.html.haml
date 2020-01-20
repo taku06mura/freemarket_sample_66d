@@ -1,0 +1,69 @@
+= render "shared/header2.html.haml"
+.urn-header
+.urn-main 
+  .urn-main__head
+    %h2 支払い方法
+  .urn-main__forms
+    .urn-main__forms__single-content
+      .urn-main__forms__single-content__group.urn-main__forms__single-content__group--top
+        .urn-div
+          .urn-label
+            カード番号
+          .urn-require
+            必須
+          %input.urn-form{placeholder: "半角数字のみ", value: ""}/
+      .urn-main__forms__single-content__group
+        .urn-div
+          .urn-label
+            有効期限
+          .urn-require
+            必須
+          .urn-div
+            .urn-select-box.urn-select-box--expiration.icon-relative
+              %i.icon-relative--absolute.fas.fa-angle-down
+              %select.urn-birthday-select-wrap
+                %option{value: ""}  ---
+                %option{value: "1"} 1
+                %option{value: "2"} 2
+                %option{value: "3"} 3
+                %option{value: "4"} 4
+                %option{value: "5"} 5
+                %option{value: "6"} 6
+                %option{value: "7"} 7
+                %option{value: "8"} 8
+                %option{value: "9"} 9
+                %option{value: "10"} 10
+                %option{value: "11"} 11
+                %option{value: "12"}12
+            月
+          .urn-div
+            .urn-select-box.urn-select-box--expiration.icon-relative
+              %i.icon-relative--absolute.fas.fa-angle-down
+              %select.urn-birthday-select-wrap
+                %option{value: ""}  ---
+                %option{value: "20"} 20
+                %option{value: "21"} 21
+                %option{value: "22"} 22
+                %option{value: "23"} 23
+                %option{value: "24"} 24
+                %option{value: "25"} 25
+                %option{value: "26"} 26
+                %option{value: "27"} 27
+                %option{value: "28"} 28
+                %option{value: "29"} 29
+                %option{value: "30"} 30
+            年
+      .urn-main__forms__single-content__group
+        .urn-div
+          .urn-label
+            セキュリティコード
+          .urn-require
+            必須
+          %input.urn-form{placeholder: "カード背面4桁もしくは3桁の番号", value: ""}/
+          .urn-main__forms__single-content__group.urn-text-right
+            = link_to "#" do
+              %i.fas.fa-question-circle
+              カード裏面の番号とは？
+      = link_to "次へ進む", save_user_path, method: :post, class: "urn-btn"
+= render "shared/footer2.html.haml"
+              

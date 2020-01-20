@@ -39,17 +39,30 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_address
   end
 
+  def create_address
+    session[:after_create_address]= user_params[:address_attributes]
+    @user = User.new
+    @user.build_address(session[:after_create_address])
+    render :new_card
+  end
+
+  def new_card
+    @user = User.new
+  end
+
   def save_user
     @user = User.new(session[:user_params])
     @user.build_personal_datum(session[:after_create_phone])
-    @user.build_address(user_params[:address_attributes])
-    
+    @user.build_address(session[:after_create_address])
     if @user.save
       sign_in(:user, @user)
-      redirect_to root_path and return
+      render :complete
     else
       render :new and return
     end
+  end
+
+  def complete
   end
     
   # GET /resource/edit

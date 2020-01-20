@@ -1,11 +1,25 @@
-%h2 電話番号登録
-= form_for @user, url: create_phone_path do |f|
-  = render "devise/shared/error_messages", resource: resource
-  = f.fields_for :personal_datum do |fin|
-    .field
-      = fin.label :phone_number
-      %br/
-      = fin.number_field :phone_number, autocomplete: "phone_number"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+
+= render "shared/header2.html.haml".urn-header
+.urn-main.urn-main--phone
+  .urn-main__head.urn-main__head--phone
+    %h2 電話番号の確認
+  .urn-main__forms
+    .urn-main__forms__single-content
+      = form_for @user, url: create_phone_path, mehod: :post do |f|
+        = f.fields_for :personal_datum do |fin|
+          .urn-main__forms__single-content__group.urn-main__forms__single-content__group--top
+            .urn-div
+              .urn-label
+                携帯電話の番号
+              .urn-require
+                必須
+            = fin.text_field :phone_number, autocomplete: "phone_number", class: "urn-form", placeholder: "携帯電話の番号を入力"
+          %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          = f.submit "SMSを送信する", class: "urn-btn"
+          %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+          .urn-main__forms__single-content__group.urn-text-right
+            = link_to "#" do
+              電話番号の確認が必要な理由
+              %i.fas.fa-angle-right
+= render "shared/footer2.html.haml"
+    

@@ -1,27 +1,49 @@
-%h2 address
-= form_for @user, url: save_user_path do |f|
-  = render "devise/shared/error_messages", resource: resource
-  = f.fields_for :address_attributes do |fin|
-    .field
-      = fin.label :prefecture
-      %br/
-      = fin.text_field :prefecture, autocomplete: "prefecture"
-    .field
-      = fin.label :postal_code
-      %br/
-      = fin.number_field :postal_code, autocomplete: "postal_code"
-    .field
-      = fin.label :municipality
-      %br/
-      = fin.text_field :municipality, autocomplete: "municipality"
-    .field
-      = fin.label :house_number
-      %br/
-      = fin.text_field :house_number, autocomplete: "house_number"
-    .field
-      = fin.label :building_name
-      %br/
-      = fin.text_field :building_name, autocomplete: "building_name"
-  .actions
-    = f.submit "Next"
-= render "devise/shared/links"
+= render "shared/header2.html.haml"
+.urn-header
+.urn-main 
+  .urn-main__head
+    %h2 お届け先住所
+  .urn-main__forms
+    .urn-main__forms__single-content
+      = form_for @user, url: create_address_path do |f|
+        = f.fields_for :address_attributes do |fin|
+          .urn-main__forms__single-content__group.urn-main__forms__single-content__group--top
+            .urn-div
+              .urn-label  
+                郵便番号
+              .urn-require
+                必須
+              = fin.number_field :postal_code, autocomplete: "postal_code", class: "urn-form", placeholder: "1234567"
+          .urn-main__forms__single-content__group
+            .urn-div
+              .urn-label  
+                都道府県
+              .urn-require
+                必須
+              .urn-select-box.urn-select-box--full-width.icon-relative
+                %i.icon-relative--absolute.fas.fa-angle-down
+                = fin.select :prefecture, Address.prefectures.keys, {}, {class: "urn-form urn-form--select"}
+          .urn-main__forms__single-content__group
+            .urn-div
+              .urn-label  
+                市区町村
+              .urn-require
+                必須
+              = fin.text_field :municipality, autocomplete: "municipality", class: "urn-form", placeholder: "例) 横浜市緑区"
+          .urn-main__forms__single-content__group
+            .urn-div
+              .urn-label  
+                番地
+              .urn-require
+                必須
+              = fin.text_field :house_number, autocomplete: "municipality", class: "urn-form", placeholder: "例) 青山1-1-1"
+          .urn-main__forms__single-content__group
+            .urn-div
+              .urn-label  
+                建物名
+              .urn-require.urn-require--any
+                任意
+              = fin.text_field :building_name, autocomplete: "municipality", class: "urn-form", placeholder: "例) 柳ビル103"
+          = f.submit "次へ進む", class: "urn-btn"
+= render "shared/footer2.html.haml"
+          
