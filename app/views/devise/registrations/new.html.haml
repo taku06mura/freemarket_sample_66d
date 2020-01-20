@@ -1,44 +1,77 @@
-%h2 Sign up
-= form_for @user, url: create_user_path do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :nickname
-    %br/
-    = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  = f.fields_for :personal_datum do |fin|
-    .field
-      = fin.label :last_name
-      %br/
-      = fin.text_field :last_name, autocomplete: "last_name"
-    .field
-      = fin.label :first_name
-      %br/
-      = fin.text_field :first_name, autocomplete: "first_name"
-    .field
-      = fin.label :kana_last_name
-      %br/
-      = fin.text_field :kana_last_name, autocomplete: "kana_last_name"
-    .field
-      = fin.label :kana_first_name
-      %br/
-      = fin.text_field :kana_first_name, autocomplete: "kana_first_name"
-    .field
-      = fin.label :birthday
-      %br/
-      = fin.number_field :birthday_year, autocomplete: "birthday_year"
-      = fin.number_field :birthday_month, autocomplete: "birthday_month"
-      = fin.number_field :birthday_day, autocomplete: "birthday_day"
-  .actions
-    = f.submit "Next"
-= render "devise/shared/links"
+= render "shared/header2.html.haml"
+.urn-header
+.urn-main 
+  .urn-main__head
+    %h2 会員情報入力
+  .urn-main__forms
+    .urn-main__forms__single-content
+      = form_for @user, url: create_user_path, method: :post do |f|
+        .urn-main__forms__single-content__group.urn-main__forms__single-content__group--top
+          .urn-label  
+            ニックネーム
+          .urn-require
+            必須
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "urn-form", placeholder: "例) フリマ太郎"
+        .urn-main__forms__single-content__group
+          .urn-label  
+            メールアドレス
+          .urn-require
+            必須
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "urn-form", placeholder: "PC・携帯どちらでも可"
+        .urn-main__forms__single-content__group
+          .urn-label  
+            パスワード
+          .urn-require
+            必須
+          = f.password_field :password, autocomplete: "new-password", class: "urn-form", placeholder: "7文字以上の半角英数字"
+          %p.urn-form-info-text ※ 英数字と数字の両方を含めて設定してください
+        .urn-main__forms__single-content__group
+          %h3 本人確認
+          %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客様に公開されることはありません。 
+        = f.fields_for :personal_datum do |fin|
+          .urn-main__forms__single-content__group
+            .urn-div
+              .urn-label  
+                お名前(全角)
+              .urn-require
+                必須
+            = fin.text_field :last_name, autocomplete: "last_name", class: "urn-form urn-form--half", placeholder: "例) 山田"
+            = fin.text_field :first_name, autocomplete: "first_name", class: "urn-form urn-form--half", placeholder: "例) 彩"
+          .urn-main__forms__single-content__group
+            .urn-div
+              .urn-label  
+                お名前カナ(全角)
+              .urn-require
+                必須
+            = fin.text_field :kana_last_name, autocomplete: "kana_last_name", class: "urn-form urn-form--half", placeholder: "例) ヤマダ"
+            = fin.text_field :kana_first_name, autocomplete: "kana_first_name", class: "urn-form urn-form--half", placeholder: "例) アヤ"
+          .urn-main__forms__single-content__group
+            .urn-div
+              .urn-label  
+                生年月日
+              .urn-require
+                必須
+              .urn-div
+                .urn-select-box.icon-relative
+                  %i.icon-relative--absolute.fas.fa-angle-down
+                  = fin.select :birthday_year, options_for_select((1900..2020).to_a),{}, prompt: "--", class: "urn-birthday-select-wrap" 
+                年
+                .urn-select-box.icon-relative
+                  %i.icon-relative--absolute.fas.fa-angle-down
+                  = fin.select :birthday_month, options_for_select((1..12).to_a),{}, prompt: "--",  class: "urn-birthday-select-wrap"
+                月
+                .urn-select-box.icon-relative
+                  %i.icon-relative--absolute.fas.fa-angle-down
+                  = fin.select :birthday_day, options_for_select((1..31).to_a),{}, prompt: "--", class: "urn-birthday-select-wrap"
+                日
+          %p.urn-form-info-text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .urn-main__forms__single-content
+          %p.urn-main__forms__single-content__single-text 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+          = f.submit "次へ進む", class: "urn-btn"
+          .urn-main__forms__single-content__group.urn-text-right
+            = link_to "#" do
+              本人情報の登録について
+              %i.fas.fa-angle-right
+          .urn-main__forms__single-content__group.urn-main__forms__single-content__term
+            This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+= render "shared/footer2.html.haml"
