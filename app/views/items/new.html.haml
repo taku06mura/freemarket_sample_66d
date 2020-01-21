@@ -2,26 +2,21 @@
 
 .in-main
   .in-main__container
-    .in-main__container__sell 
+    = form_with model: @item, url: '/items/create', class: "in-main__container__sell", local: true do |form|
       .in-main__container__sell__data
         .in-main__container__sell
           .in-main__container__sell__head 商品情報を入力
           .in-main__container__sell__form
             .in-main__container__sell__form__box
-              .in-main__container__sell__form__box__mini
-                .in-main__container__sell__form__box__mini__head
-                  出品画像
-                .in-main__container__sell__form__box__mini__span
-                  必須
-              .in-main__container__sell__form__up
-                最大10枚までアップロードできます
-              %label.in-main__container__sell__form__a
-                .in-main__container__sell__form__a__label
-                  %input.in-main__container__sell__form__a__label__file{type: "file", class: ""}
-                    .in-main__container__sell__form__label__file__message
-                      ドラックアンドドロップ
-                    .in-main__container__sell__form__label__file__message
-                      またはクリックしてアップロード
+              %h.in-main__container__sell__form__box--image 出品画像
+              %span.in-main__container__sell__form__box--text 必須
+              %p.in-main__container__sell__form__box--info 最大10枚までアップロードできます
+              #image-box
+                = form.fields_for :images do |image|
+                  .js-file_group{"data-index" => "#{image.index}"}
+                    = image.file_field :source, class: 'js-file'
+                    %br/
+                    %span.js-remove 削除
 
             .in-main__container__sell__form__content1
               .in-main__container__sell__form__content1__group1
@@ -31,7 +26,7 @@
                   .in-main__container__sell__form__content1__group1__label__span
                     必須
               .in-main__container__sell__form__content1__group2
-                %input.in-main__container__sell__form__content1__group2__input{placeholder: "商品名（必須 40文字まで)", value: ""}/
+                = form.text_field :name, placeholder: "商品名（必須 40文字まで)", class: "in-main__container__sell__form__content1__group2__input"
               .in-main__container__sell__form__content1__group3
                 .in-main__container__sell__form__content1__group3__label
                   .in-main__container__sell__form__content1__group3__label__text
@@ -39,51 +34,44 @@
                   .in-main__container__sell__form__content1__group3__label__span
                     必須
                 .in-main__container__sell__form__content1__group3__textarea
-                  %textarea.in-main__container__sell__form__content1__group3__textarea__form{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+                  = form.text_area :item_discription, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "in-main__container__sell__form__content1__group3__textarea__form"
 
             .in-main__container__sell__form__content2
               .in-main__container__sell__form__content2__inner
                 商品の詳細
-                .in-main__container__sell__form__content2__inner__select
+                #categoryForm.in-main__container__sell__form__content2__inner__select
                   .in-main__container__sell__form__content2__inner__select__top
-                    %h3.in-main__container__sell__form__content2__inner__select__top__left
+                    %h.in-main__container__sell__form__content2__inner__select__top__left
                       商品の状態
                       %span.in-main__container__sell__form__content2__inner__select__top__right
                         必須
                   .in-main__container__sell__form__content2__inner__select__wrappe
                     = icon 'fa', 'chevron-down', class: 'in-fa'
-
-                    %select.button-in
-                      %option{value: ""}  ---
-                      %option{value: "1"} レディース
-                      %option{value: "2"} メンズ
-                      %option{value: "3"} ベビー・キッズ
-                      %option{value: "4"} インテリア・住まい・小物
-                      %option{value: "5"} 本・音楽・ゲーム
-                      %option{value: "6"} おもちゃ・ホビー・グッズ
-                      %option{value: "7"} コスメ・香水・美容
-                      %option{value: "8"} 家電・スマホ・カメラ
-                      %option{value: "9"} スポーツ・レジャー
-                      %option{value: "10"} ハンドメイド
-                      %option{value: "11"} チケット
-                      %option{value: "12"} 自動車・オートバイ
-                      %option{value: "13"} その他
+                    = form.select :quolity, [["新品・未使用", "新品・未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], {prompt: "--"}, {class: "button-in"}
                   .in-main__container__sell__form__content2__inner__select__dwon
-                    %h3.in-main__container__sell__form__content2__inner__select__dwon__left
+                    %h.in-main__container__sell__form__content2__inner__select__dwon__left
+                      ブランド
+                      %span.in-main__container__sell__form__content2__inner__select__dwon__any
+                        任意
+                  .in-main__container__sell__form__content2__inner__select__wrappe
+                    = form.text_field :brand_name, placeholder: "ブランド名", class: "button-in"
+                  .in-main__container__sell__form__content2__inner__select__dwon
+                    %h.in-main__container__sell__form__content2__inner__select__dwon__left
+                      サイズ
+                      %span.in-main__container__sell__form__content2__inner__select__dwon__any
+                        任意
+                  .in-main__container__sell__form__content2__inner__select__wrappe
+                    = form.select :size, [["XS以下", "XS以下"], ["XS", "XS"], ["S", "S"], ["M", "M"], ["L", "L"], ["XL", "XL"], ["2XL", "2XL"]], {prompt: "--"}, {class: "button-in"}
+                  .in-main__container__sell__form__content2__inner__select__dwon
+                    %h.in-main__container__sell__form__content2__inner__select__dwon__left
                       カテゴリー
                       %span.in-main__container__sell__form__content2__inner__select__dwon__right
                         必須
                   .in-main__container__sell__form__content2__inner__select__wrappe
                     = icon 'fa', 'chevron-down', class: 'in-fa'
-
-                    %select.button-in
-                      %option{value: ""}  ---
-                      %option{value: "1"}  新品・未使用
-                      %option{value: "2"}  未使用に近い
-                      %option{value: "3"}  目立った傷や汚れなし
-                      %option{value: "4"}  やや傷や汚れあり
-                      %option{value: "5"}  傷や汚れあり
-                      %option{value: "6"}  全体的に状態が悪い
+                    %select.button-in#parent_category
+                      - @category_parent_array.each do |c|
+                        %option{:value => "#{c}"}= c
 
             .in-main__container__sell__form__content3 
               .in-main__container__sell__form__content3__label
@@ -92,42 +80,37 @@
                 %a.in-main__container__sell__form__content3__label__q{href: "/jp/help_center/article/68/", target: "_blank"} ?
               .in-main__container__sell__form__content3__select
                 .in-main__container__sell__form__content3__select__top
-                  %h3.in-main__container__sell__form__content3__select__top__left
+                  %h.in-main__container__sell__form__content3__select__top__left
                     配送料の負担
                     %span.in-main__container__sell__form__content3__select__top__right
                       必須
                 .in-main__container__sell__form__content3__select__wrappe
                   = icon 'fa', 'chevron-down', class: 'in-fa'
-
-                  %select.button-in
-                    %option{value: ""}  ---
-                    %option{value: "1"} 送料込み（出品者負担）
-                    %option{value: "2"} 着払い（購入者負担）
-
+                  = form.select :carriage_fee, [["送料込み（出品者負担）", "送料込み（出品者負担）"], ["着払い（購入者負担）", "着払い（購入者負担）"]], {prompt: "--"}, {class: "button-in"}
+                .in-main__container__sell__form__content3__select__top
+                  %h.in-main__container__sell__form__content3__select__top__left
+                    配送の方法
+                    %span.in-main__container__sell__form__content3__select__top__right
+                      必須
+                .in-main__container__sell__form__content3__select__wrappe
+                  = icon 'fa', 'chevron-down', class: 'in-fa'
+                  = form.select :delivery, [["未定", "未定"], ["らくらくメルカリ便", "らくらくメルカリ便"], ["ゆうメール", "ゆうメール"], ["レターパック", "レターパック"], ["普通郵便", "普通郵便"], ["クロネコヤマト", "クロネコヤマト"]], {prompt: "--"}, {class: "button-in"}
                 .in-main__container__sell__form__content3__select__top2
-                  %h3.in-main__container__sell__form__content3__select__top2__left
+                  %h.in-main__container__sell__form__content3__select__top2__left
                     発送元の地域
                     %span.in-main__container__sell__form__content3__select__top2__right
                       必須
                 .in-main__container__sell__form__content3__select__wrappe
                   = icon 'fa', 'chevron-down', class: 'in-fa'
-
-                  %select.button-in
-                    %option{value: ""}  ---
-
+                  = form.select :prefecture, Item.prefectures.keys, {}, {class: 'button-in'}
                 .in-main__container__sell__form__content3__select__top3
-                  %h3.in-main__container__sell__form__content3__select__top3__left
+                  %h.in-main__container__sell__form__content3__select__top3__left
                     発送までの日数
                     %span.in-main__container__sell__form__content3__select__top3__right
                       必須
                 .in-main__container__sell__form__content3__select__wrappe
                   = icon 'fa', 'chevron-down', class: 'in-fa'
-
-                  %select.button-in
-                    %option{value: ""}  ---
-                    %option{value: "1"} 1~2日で発送
-                    %option{value: "2"} 2~3日で発送
-                    %option{value: "2"} 4~7日で発送
+                  = form.select :days, [["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], {prompt: "--"}, {class: "button-in"}
 
             .in-main__container__sell__form__content4    
               .in-main__container__sell__form__content4__label
@@ -144,17 +127,16 @@
                   .in-main__container__sell__form__content4__form__main__right
                     .in-main__container__sell__form__content4__form__main__right__yen
                       ¥
-                    %input.in-main__container__sell__form__content4__form__main__right__input{placeholder: "例）300", value: ""}/
-
+                    = form.text_area :price, placeholder: "例）300", class: "in-main__container__sell__form__content4__form__main__right__input", id: "in-price"
                 .in-main__container__sell__form__content4__form__com
                   .in-main__container__sell__form__content4__form__com__left
                     販売手数料(10%)
-                  .in-main__container__sell__form__content4__form__com__right
-                    _
+                  #in-commition.in-main__container__sell__form__content4__form__com__right
+                    -
                 .in-main__container__sell__form__content4__form__bold
                   .in-main__container__sell__form__content4__form__bold__left
                     販売利益
-                  .in-main__container__sell__form__content4__form__bold__right
+                  #in-profit.in-main__container__sell__form__content4__form__bold__right
                     _
                   
             .in-main__container__sell__form__content5
@@ -165,8 +147,7 @@
               .in-main__container__sell__form__content5__text
                 また、出品をもちまして加盟店規約に同意したことになります。
               
-              %button.in-btn-red{type: "submit"}
-                出品する
+              = form.submit '登録する', class: "in-btn-red"
               %button.in-btn-gray{type: "back"}
                 戻る
 
