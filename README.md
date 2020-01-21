@@ -53,8 +53,8 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|saler_id_id|integer|null: false, foreign_key: true|
-|buyer_id_id|integer|foreign_key: true|
+|saler_id|integer|null: false, foreign_key: true|
+|buyer_id|integer|foreign_key: true|
 |name|string|null: false|
 |item_discription|string|null: false|
 |category_id|integer|null: false|

@@ -8,15 +8,10 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
     @item.images.new
   end
 
   def create
-   
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
@@ -30,7 +25,6 @@ class ItemsController < ApplicationController
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
 
- # 子カテゴリーが選択された後に動くアクション
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
@@ -38,10 +32,7 @@ class ItemsController < ApplicationController
   private
 
   def set_parent
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
   
   def item_params
