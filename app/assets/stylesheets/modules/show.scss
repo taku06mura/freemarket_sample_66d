@@ -14,7 +14,7 @@
     line-height: 1.4;
   }
   &__main-content {
-    height: 420px;
+    height: 480px;
     margin: 16px 0 0;
     &:after {
       content: "";
@@ -122,12 +122,16 @@
   }
   &__price-box {
     margin: 24px 0 0;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     .is-item-price-large {
+      display: inline-block;
       margin: 0 16px 0 0;
       font-size: 50px;
     }
     .is-item-tax {
+      display: inline-block;
       font-size: 10px;
     }
     .is-item-stopfee {

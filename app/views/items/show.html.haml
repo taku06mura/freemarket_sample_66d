@@ -1,38 +1,22 @@
 .wrapper
 
-  = render 'layouts/header1'
+  = render 'shared/header1'
 
 
 
   .is-item-box
-    %h1.is-item-name 商品名
+    %h1.is-item-name 
+      = @item.name
     .is-item-box__main-content
 
       .is__photo
         .is__photo__place
           .is__photo__place__sample
             .is__photo__place__sample__stage
-              .is__photo__place__sample__stage__in
-                .is__photo__place__sample__stage__in__img
-                  = image_tag 'frema66img-sample1.jpeg'
-              .is__photo__place__sample__stage__in
-                .is__photo__place__sample__stage__in__img
-              .is__photo__place__sample__stage__in
-                .is__photo__place__sample__stage__in__img
-              .is__photo__place__sample__stage__in
-                .is__photo__place__sample__stage__in__img
-              .is__photo__place__sample__stage__in
-                .is__photo__place__sample__stage__in__img
-              .is__photo__place__sample__stage__in
-                .is__photo__place__sample__stage__in__img
-              .is__photo__place__sample__stage__in
-                .is__photo__place__sample__stage__in__img
-              .is__photo__place__sample__stage__in
-                .is__photo__place__sample__stage__in__img
-              .is__photo__place__sample__stage__in
-                .is__photo__place__sample__stage__in__img
-              .is__photo__place__sample__stage__in
-                .is__photo__place__sample__stage__in__img
+              - @item.images.each do |image|
+                .is__photo__place__sample__stage__in
+                  .is__photo__place__sample__stage__in__img
+                    = image_tag "#{image.source}", size: "300x300"
           .is__photo__place__disabled
           .is__photo__place__dots
             .is__photo__place__dots__inner
@@ -51,7 +35,8 @@
           %tr.is__table-record
             %th.is__table-header 出品者
             %td.is__table-data
-              .is__table-data__username お名前
+              .is__table-data__username 
+                = @item.saler.nickname
               .is__table__user-rating
                 = icon 'fas', 'laugh', class: 'is__table__user-rating__laugh'
               .is__table__user-rating
@@ -61,46 +46,57 @@
           %tr.is__table-record
             %th.is__table-header カテゴリー
             %td.is__table-data
-              = link_to "大カテゴリ", root_path, class: 'is__table-data__category'
+              = link_to root_path, class: 'is__table-data__category' do
+                = @item.category.parent.parent.name
               = link_to root_path, class: 'is__table-data__category' do
                 = icon 'fas', 'angle-right'
-                中カテゴリ
+                = @item.category.parent.name
               = link_to root_path, class: 'is__table-data__category' do
                 = icon 'fas', 'angle-right'
-                小カテゴリ
+                = @item.category.name
           %tr.is__table-record
             %th.is__table-header ブランド
-            %td.is__table-data #
+            %td.is__table-data 
+              = @item.brand_name
           %tr.is__table-record
             %th.is__table-header 商品のサイズ
-            %td.is__table-data #
+            %td.is__table-data 
+              = @item.size
           %tr.is__table-record
             %th.is__table-header 商品の状態
-            %td.is__table-data #
+            %td.is__table-data 
+              = @item.quolity
           %tr.is__table-record
             %th.is__table-header 配送料の負担
-            %td.is__table-data #
+            %td.is__table-data 
+              = @item.carriage_fee
           %tr.is__table-record
             %th.is__table-header 配送の方法
-            %td.is__table-data #
+            %td.is__table-data 
+              = @item.delivery
           %tr.is__table-record
             %th.is__table-header 配送元地域
             %td.is__table-data 
-              = link_to "都道府県名", root_path, class: 'is__table-data__enum'
+              = link_to "#{@item.prefecture}", root_path, class: 'is__table-data__enum'
           %tr.is__table-record
             %th.is__table-header 発送日の目安
-            %td.is__table-data #
+            %td.is__table-data 
+              = @item.days
 
     .is-item-box__price-box
-      %span.is-item-price-large ¥###
-      %span.is-item-tax （税込）
-      %span.is-item-stopfee 送料込みor着払い
+      .is-item-price-large 
+        ¥
+        = @item.price
+      .is-item-tax 
+        （税込）
+      .is-item-stopfee 
+        = @item.carriage_fee
 
     = link_to root_path , class: 'is-item-buy-btn' do
       購入画面に進む
 
     %p.is-item-box__error-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-
+    
     .is-item-box__description
       %p.is-item-box__description__inner ユーザーの商品説明が入る
 
@@ -109,7 +105,7 @@
         %button.is-button.is-button__like
           = icon 'far', 'heart', class: 'is-icon'
           %span.is__writing いいね！
-          %span.is__num num
+          %span.is__num 
         = link_to root_path, class: 'is-button is-button__report' do
           = icon 'far', 'flag', class: 'is-icon'
           %span.is__writing 不適切な商品の報告
@@ -265,6 +261,6 @@
 
 
 
-  = render 'layouts/footer1'
+  = render 'shared/footer1'
 
   -# = icon 'fas', 'angle-right'
