@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_parent, only: [:new, :create, ]
   def index
   end
 
@@ -13,13 +14,16 @@ class ItemsController < ApplicationController
     end
     @item.images.new
   end
+
   def create
-    @product = Product.new(product_params)
-    if @product.save
+   
+    @item = Item.new(item_params)
+    if @item.save
       redirect_to root_path
     else
       render :new
     end
+
   end
 
   def get_category_children
@@ -32,9 +36,16 @@ class ItemsController < ApplicationController
   end
   
   private
+
+  def set_parent
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+  end
   
-  def product_params
-    params.require(:product).permit(:name, :price, images_attributes: [:source])
+  def item_params
+    params.require(:item).permit(:name, :item_discription, :category_id, :size, :brand_name, :quolity, :prefecture, :price, :carriage_fee, :delivery, :days, images_attributes: [:source]).merge(saler_id: current_user.id)
   end
  
 end

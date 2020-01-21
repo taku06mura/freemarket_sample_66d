@@ -2,7 +2,7 @@
 
 .in-main
   .in-main__container
-    = form_with model: @item, class: "in-main__container__sell", local: true do |form|
+    = form_with model: @item, url: '/items/create', class: "in-main__container__sell", local: true do |form|
       .in-main__container__sell__data
         .in-main__container__sell
           .in-main__container__sell__head 商品情報を入力
@@ -69,7 +69,9 @@
                         必須
                   .in-main__container__sell__form__content2__inner__select__wrappe
                     = icon 'fa', 'chevron-down', class: 'in-fa'
-                    = form.select :category1_id, @category_parent_array, {}, {class: 'button-in', id: 'parent_category'}
+                    %select.button-in#parent_category
+                      - @category_parent_array.each do |c|
+                        %option{:value => "#{c}"}= c
 
             .in-main__container__sell__form__content3 
               .in-main__container__sell__form__content3__label
@@ -85,6 +87,14 @@
                 .in-main__container__sell__form__content3__select__wrappe
                   = icon 'fa', 'chevron-down', class: 'in-fa'
                   = form.select :carriage_fee, [["送料込み（出品者負担）", "送料込み（出品者負担）"], ["着払い（購入者負担）", "着払い（購入者負担）"]], {prompt: "--"}, {class: "button-in"}
+                .in-main__container__sell__form__content3__select__top
+                  %h.in-main__container__sell__form__content3__select__top__left
+                    配送の方法
+                    %span.in-main__container__sell__form__content3__select__top__right
+                      必須
+                .in-main__container__sell__form__content3__select__wrappe
+                  = icon 'fa', 'chevron-down', class: 'in-fa'
+                  = form.select :delivery, [["未定", "未定"], ["らくらくメルカリ便", "らくらくメルカリ便"], ["ゆうメール", "ゆうメール"], ["レターパック", "レターパック"], ["普通郵便", "普通郵便"], ["クロネコヤマト", "クロネコヤマト"]], {prompt: "--"}, {class: "button-in"}
                 .in-main__container__sell__form__content3__select__top2
                   %h.in-main__container__sell__form__content3__select__top2__left
                     発送元の地域
@@ -92,7 +102,7 @@
                       必須
                 .in-main__container__sell__form__content3__select__wrappe
                   = icon 'fa', 'chevron-down', class: 'in-fa'
-                  = form.collection_select :prefectur, Prefecture.all, :name, :name, {prompt: "--"}, {class: "button-in"}
+                  = form.select :prefecture, Item.prefectures.keys, {}, {class: 'button-in'}
                 .in-main__container__sell__form__content3__select__top3
                   %h.in-main__container__sell__form__content3__select__top3__left
                     発送までの日数

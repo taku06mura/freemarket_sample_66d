@@ -11,9 +11,10 @@ Rails.application.routes.draw do
     post 'save_user', to: 'users/registrations#save_user'
   end
   root "items#index"
-  resources :items, only: [:index, :show,] do
+  resources :items, only: [:index, :show, ] do
     collection do 
       get 'new'
+      post 'create'
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end

@@ -53,16 +53,20 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
-|item_name|string|null: false|
+|saler_id_id|integer|null: false, foreign_key: true|
+|buyer_id_id|integer|foreign_key: true|
+|name|string|null: false|
 |item_discription|string|null: false|
 |category_id|integer|null: false|
-|quality|string|null: false|
-|prefectures|string|null: false|
-|price|integer|null: false|
-|brand_id|integer|null: false,index: true|
 |size|string|null: false|
-|carriage_fee|integer|null: false|
+|brand_name|string|
+|quolity|string|null: false|
+|price|integer|null: false|
+|carriage_fee|string|null: false|
+|prefecture|string|null: false|
+|delivery|string|null: false|
+|days|string|null: false|
+
 ### Association
 - has_many :images dependent: :destroy
 - has_many :comments dependent: :destroy
@@ -103,7 +107,7 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|src|string|null: false|
+|source|string|null: false|
 |item_id|integer|null: false|
 ### Association
 - belongs_to :item

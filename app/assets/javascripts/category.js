@@ -9,7 +9,7 @@ $(function(){
     var childSelectHtml = '';
     childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
                         <div class='listing-select-wrapper__box'>
-                          <select class="listing-select-wrapper__box--select" id="child_category" name="item[category2_id]">
+                          <select class="listing-select-wrapper__box--select" id="child_category">
                             <option value="---" data-category="---">---</option>
                             ${insertHTML}
                           <select>
@@ -23,7 +23,7 @@ $(function(){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='listing-select-wrapper__added' id= 'grandchildren_wrapper'>
                               <div class='listing-select-wrapper__box'>
-                                <select class="listing-select-wrapper__box--select" id="grandchild_category" name="item[category3_id]">
+                                <select class="listing-select-wrapper__box--select" id="grandchild_category" name="item[category_id]">
                                   <option value="---" data-category="---">---</option>
                                   ${insertHTML}
                                 </select>
@@ -94,7 +94,6 @@ $(function(){
       $('#size_wrapper').remove();
       $('#brand_wrapper').remove();
     }
-  });
-
+  })
 
 });
