@@ -1,0 +1,67 @@
+= render "shared/header2"
+
+.pi-main
+  .pi-main__container
+    .pi-main__container__head
+      購入内容の確認
+    .pi-main__container__item
+      .pi-main__container__item__box
+        .pi-main__container__item__box__in
+          .pi-main__container__item__box__in__image
+            = image_tag 'wintry-2915190_1280.png', class: "pi-image"
+          .pi-main__container__item__box__in__detail
+            .pi-main__container__item__box__in__detail__name
+              コーチショルダーバック
+            .pi-main__container__item__box__in__detail__money
+              .pi-main__container__item__box__in__detail__money__span
+                ¥4.980
+              .pi-main__container__item__box__in__detail__money__fee
+                （税込）送料込み
+
+
+    .pi-main__container__form
+      .pi-main__container__form__inner
+        .pi-main__container__form__inner__price
+          支払い金額
+        .pi-main__container__form__inner__yen
+          ¥4,980
+      .pi-main__container__form__point
+        .pi-main__container__form__point__icon
+          ■
+        %label.pi-main__container__point__label
+          ポイントを使用 (所持ポイント: P0)
+
+      .pi-main__container__form__pay-form
+        .pi-main__container__form__pay-form__inner
+          .pi-main__container__form__pay-form__inner__text
+            支払い方法
+          .pi-main__container__form__pay-form__inner__pay
+            .pi-main__container__form__pay-form__inner__pay__icon
+              ⊕
+            .pi-main__container__form__pay-form__inner__pay__text
+              登録してください
+      
+      .pi-main__container__form__address
+        .pi-main__container__form__address__inner
+          .pi-main__container__form__address__inner__head
+            .pi-main__container__form__address__inner__head__left
+              配送先
+            .pi-main__container__form__address__inner__head__right
+              変更する
+          .pi-main__container__form__address__inner__text
+            .pi-main__container__form__address__inner__text__detail
+              〒123-4567
+            .pi-main__container__form__address__inner__text__detail__h1
+              東京都 練馬区 テック
+            .pi-main__container__form__address__inner__text__detail__h2
+              渡辺 豊
+
+      .pi-main__container__form__section
+        %button.pi-main__container__form__section__button{:disabled => "disabled", :type => "submit"} 購入する
+
+
+
+= render "shared/footer2"
+        
+
+

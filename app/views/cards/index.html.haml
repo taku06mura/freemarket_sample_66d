@@ -1,0 +1,30 @@
+= render 'shared/header1'
+
+%main.main
+
+  = render 'shared/side-bar'
+
+  .contents
+    .contents__ci-contents
+      .contents__ci-contents__head
+        支払い方法
+      .contents__ci-contents__innner
+        .contents__ci-contents__innner__label
+          .contents__ci-contents__innner__label__sub
+            クレジットカード一覧
+        .contents__ci-contents__innner__add-cards
+          .contents__ci-contents__innner__add-cards__single
+            .contents__ci-contents__innner__add-cards__single__box
+              .contents__ci-contents__innner__add-cards__single__box__cn-btn-red{href: ""}
+                = icon 'far', 'credit-card', class: "ci-icon"
+                .contents__ci-contents__innner__add-cards__single__box__cn-btn-red__text
+                  クレジットカードを追加する
+        .contents__ci-contents__innner__regist
+          .contents__ci-contents__innner__regist__blank
+            .contents__ci-contents__innner__regist__blank__text
+              支払い方法について
+              = icon 'fas', 'chevron-right', class: "ci-right"
+
+  = render 'shared/camera'
+
+= render 'shared/footer1'

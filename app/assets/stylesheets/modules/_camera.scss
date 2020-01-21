@@ -1,0 +1,26 @@
+.ii-camera{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color:red;
+  position: absolute;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  &__btn{
+    text-decoration: none;
+    &__box{
+      margin-top: 20px;
+      text-decoration: none;
+      text-align: center;
+      &--text{
+        font-size: 25px;
+        color: $main_color;
+      }
+      .fas.fa-camera{
+        font-size: 80px;
+        color: white;
+      }
+    }
+  }
+}

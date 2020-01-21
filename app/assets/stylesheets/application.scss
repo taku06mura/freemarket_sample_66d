@@ -1,14 +1,27 @@
-@import "reset";
+@import "modules/reset";
 @import "config/colors";
 @import "modules/header1.scss";
 @import "modules/footer1.scss";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "items/index";
+@import "user/user-registration-new";
+@import "user/devise-session-new";
+@import "modules/show.scss";
 @import "items/new";
 @import "modules/header2.scss";
 @import "modules/footer2.scss";
-
+@import "mypages/mypages_edit.scss";
+@import "modules/side-bar.scss";
+@import "modules/main.scss";
+@import "modules/contents.scss";
+@import "modules/camera.scss";
+@import "mypages/logout.scss";
+@import "purchase/purchase_index.scss";
+@import "cards/cards_index.scss";
+@import "cards/cards_new.scss";
+@import "mypages/index.scss";
+@import "purchase/purchase_index.scss";
 
 body {
   background-color: $main_color;

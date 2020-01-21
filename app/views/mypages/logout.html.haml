@@ -1,0 +1,15 @@
+= render 'shared/header1'
+
+%main.main
+
+  = render 'shared/side-bar'
+
+  .contents
+    .content__ml-chapter
+      .content__ml-chapter__form
+        .content__ml-chapter__form__inner
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "ml-btn-red"
+
+  = render 'shared/camera'
+
+= render 'shared/footer1'

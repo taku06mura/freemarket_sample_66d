@@ -95,7 +95,7 @@
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|prefecture|string|null: false|
+|prefecture|integer|null: false|
 |postal_code|integer|null: false|
 |municipality|string|null: false,index: true|
 |house_number|string|null: false|

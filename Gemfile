@@ -79,6 +79,7 @@ gem 'mini_magick'
 gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'fog-aws'
+gem 'active_hash'
 
 # authentication with other service
 gem 'omniauth'

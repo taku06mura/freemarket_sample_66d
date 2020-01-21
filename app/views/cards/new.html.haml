@@ -1,0 +1,89 @@
+= render 'shared/header1'
+
+%main.main
+
+  = render 'shared/side-bar'
+
+  .contents
+    .contents__cn-contents
+      .contents__cn-contents__head
+        クレジットカード情報入力
+      .contents__cn-contents__form
+        .contents__cn-contents__form__single
+          .contents__cn-contents__form__single__group
+            .contents__cn-contents__form__single__group__label
+              .contents__cn-contents__form__single__group__label__text
+                カード番号
+              .contents__cn-contents__form__single__group__label__span
+                必須
+            %input.cn-input{"data-input-type": "card", maxlength: "19", placeholder: "半角数字のみ", type: "text", value: ""}/
+            %i.cn-card-list
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3649802486", class: "cn-img"
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3649802486", class: "cn-img"
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?3649802486", class: "cn-img"
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3649802486", class: "cn-img"
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?3649802486", class: "cn-img"
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3649802486", class: "cn-img"
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3649802486", class: "cn-img"
+
+          .contents__cn-contents__form__single__group
+            .contents__cn-contents__form__single__group__label
+              .contents__cn-contents__form__single__group__label__text
+                有効期限
+              .contents__cn-contents__form__single__group__label__span
+                必須
+            .cn-select-wrap
+              %select.cn-select
+                %option{value: "01"} 01
+                %option{value: "02"} 02
+                %option{value: "03"} 03
+                %option{value: "04"} 04
+                %option{value: "05"} 05
+                %option{value: "06"} 06
+                %option{value: "07"} 07
+                %option{value: "08"} 08
+                %option{value: "09"} 09
+                %option{value: "10"} 10
+                %option{value: "11"} 11
+                %option{value: "12"} 12
+
+              = icon 'fa', 'chevron-down', class: 'cn-fa'
+              %text.year-and-month
+                月
+
+              %select.cn-select
+                %option{value: "20"} 20
+                %option{value: "21"} 21
+                %option{value: "22"} 22
+                %option{value: "23"} 23
+                %option{value: "24"} 24
+                %option{value: "25"} 25
+                %option{value: "26"} 26
+                %option{value: "27"} 27
+                %option{value: "28"} 28
+                %option{value: "29"} 29
+                %option{value: "30"} 30
+
+              = icon 'fa', 'chevron-down', class: 'cn-fa'
+              %text.year-and-month
+                年
+            
+          .contents__cn-contents__form__single__group
+            .contents__cn-contents__form__single__group__label
+              .contents__cn-contents__form__single__group__label__text
+                セキリュティコード
+              .contents__cn-contents__form__single__group__label__span
+                必須
+            %input.cn-input{"data-input-type": "card", maxlength: "19", placeholder: "カード背面4桁もしくは3桁の番号", type: "text", value: ""}/
+            .cn-signup-seqcode
+              .cn-signup-seqcode__q
+                ?
+              .cn-signup-seqcode__text
+                カード裏面の番号とは？
+        
+          .contents__cn-contents__form__single__group
+            %button.cn-btn-red{type: "button"} 追加する
+
+  = render 'shared/camera'
+
+= render 'shared/footer1'
