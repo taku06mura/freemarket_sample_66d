@@ -18,17 +18,9 @@
                   .is__photo__place__sample__stage__in__img
                     = image_tag "#{image.source}", size: "300x300"
           .is__photo__place__disabled
-          .is__photo__place__dots
-            .is__photo__place__dots__inner
-            .is__photo__place__dots__inner
-            .is__photo__place__dots__inner
-            .is__photo__place__dots__inner
-            .is__photo__place__dots__inner
-            .is__photo__place__dots__inner
-            .is__photo__place__dots__inner
-            .is__photo__place__dots__inner
-            .is__photo__place__dots__inner
-            .is__photo__place__dots__inner
+          #is__photo__place__dots
+            - @item.images.each do |image|
+              = image_tag "#{image.source}", size: "80x80"
 
       %table.is__table
         %tbody
