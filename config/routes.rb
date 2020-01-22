@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     post 'save_user', to: 'users/registrations#save_user'
   end
   root "items#index"
-  resources :items, only: [:index, :show, ] do
+  resources :items, only: [:index, :show, :edit, :update] do
     collection do 
       get 'new'
       post 'create'
@@ -30,5 +30,6 @@ Rails.application.routes.draw do
   end
   resources :cards, only:[:index, :new] do
   end
+  resources :user_items, only: [:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
