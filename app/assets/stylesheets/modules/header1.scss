@@ -84,17 +84,17 @@
       a {
         text-decoration: none;
       }
-      // ハイパーリンクの色を変える
-      a:link {
-        color: black;
-      }
-      // カーソルを乗せると変わる色の設定
-      a:hover {
-        color: rgb(66, 167, 207);
-      }
       &__js {
         display: flex;
         margin-left: -3px;
+        // ハイパーリンクの色を変える
+        a:link {
+          color: black;
+        }
+        // カーソルを乗せると変わる色の設定
+        a:hover {
+          color: rgb(66, 167, 207);
+        }
         &__links {
           padding-left: 0px;
           cursor: pointer;
@@ -139,6 +139,39 @@
             height: 32px;
             transform: scale(1);
             transition: all 0.3s ease-out 0s;
+          }
+        }
+        &__member {
+          display: flex;
+          &__register {
+            display: inline-block;
+            padding: 0 10px;
+            line-height: 30px;
+            border-radius: 4px;
+            text-align: center;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+          }
+          .color-change {
+            .header1-main__nav__menu__member__login {
+              display: inline-block;
+              display: block;
+              border: 1px solid #0099e8;
+              background: #fff;
+              color: #0099e8;
+              padding: 0 10px;
+              line-height: 30px;
+              border-radius: 4px;
+              text-align: center;
+              margin: 0 0 0 11px;
+            }
+            a:hover {
+              opacity: 1;
+              transition: all ease-out .3s;
+              background: #0099e8;
+              color: #fff;
+            }
           }
         }
       }
