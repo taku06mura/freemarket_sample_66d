@@ -5,6 +5,9 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @saler_other_items = Item.where(saler_id: @item.saler.id) 
+    @same_category_items = Item.where(category_id: @item.category.id)
   end
 
   def new
