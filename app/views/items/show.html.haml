@@ -20,7 +20,7 @@
           .is__photo__place__disabled
           #is__photo__place__dots
             - @item.images.each do |image|
-              = image_tag "#{image.source}", size: "80x80"
+              = image_tag "#{image.source}", size: "60x60"
 
       %table.is__table
         %tbody
@@ -148,111 +148,37 @@
       %h2.is-user-items__others__name 
         = link_to "ユーザーさんのその他の出品", root_path
       .is-user-items__others__exhibit
-
-        %section.is-user-items__others__exhibit__boxes
-          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
-            %figure.is-user-items__others__exhibit__boxes__photo
-              = image_tag 'frema66img-sample2.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
-            .is-user-items__others__exhibit__boxes__body
-              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
-              .is-user-items__others__exhibit__boxes__body__price ¥###
-
-        %section.is-user-items__others__exhibit__boxes
-          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
-            %figure.is-user-items__others__exhibit__boxes__photo
-              = image_tag 'frema66img-sample2.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
-            .is-user-items__others__exhibit__boxes__body
-              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
-              .is-user-items__others__exhibit__boxes__body__price ¥###
-
-        %section.is-user-items__others__exhibit__boxes
-          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
-            %figure.is-user-items__others__exhibit__boxes__photo
-              = image_tag 'frema66img-sample2.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
-            .is-user-items__others__exhibit__boxes__body
-              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
-              .is-user-items__others__exhibit__boxes__body__price ¥###
-
-        %section.is-user-items__others__exhibit__boxes
-          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
-            %figure.is-user-items__others__exhibit__boxes__photo
-              = image_tag 'frema66img-sample2.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
-            .is-user-items__others__exhibit__boxes__body
-              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
-              .is-user-items__others__exhibit__boxes__body__price ¥###
-
-        %section.is-user-items__others__exhibit__boxes
-          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
-            %figure.is-user-items__others__exhibit__boxes__photo
-              = image_tag 'frema66img-sample2.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
-            .is-user-items__others__exhibit__boxes__body
-              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
-              .is-user-items__others__exhibit__boxes__body__price ¥###
-
-        %section.is-user-items__others__exhibit__boxes
-          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
-            %figure.is-user-items__others__exhibit__boxes__photo
-              = image_tag 'frema66img-sample2.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
-            .is-user-items__others__exhibit__boxes__body
-              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
-              .is-user-items__others__exhibit__boxes__body__price ¥###
-
-    %section.is-user-items__samegenre
-      %h2.is-user-items__others__name
-        = link_to "同一ジャンルのその他の出品", root_path
+        - @saler_other_items.each do |item| 
+          - if item.id != @item.id  # 現在表示している商品は関連に表示しない
+            %section.is-user-items__others__exhibit__boxes
+              = link_to item_path(item.id), class: 'is-user-items__others__exhibit__boxes__link' do
+                %figure.is-user-items__others__exhibit__boxes__photo
+                  - thumbnail = Image.find_by(item_id: item.id) # サムネイルとして商品の先頭に登録されている画像のみを取り出す
+                  = image_tag "#{thumbnail.source}", class: 'is-user-items__others__exhibit__boxes__photo__img'
+                .is-user-items__others__exhibit__boxes__body
+                  %h3.is-user-items__others__exhibit__boxes__body__name 
+                    = item.name
+                  .is-user-items__others__exhibit__boxes__body__price 
+                  ¥
+                  = item.price
+  .is-user-items
+    %section.is-user-items__others
+      %h2.is-user-items__others__name 
+        = link_to "同一ジャンルのその他の商品", root_path
       .is-user-items__others__exhibit
-
-        %section.is-user-items__others__exhibit__boxes
-          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
-            %figure.is-user-items__others__exhibit__boxes__photo
-              = image_tag 'frema66img-sample3.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
-            .is-user-items__others__exhibit__boxes__body
-              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
-              .is-user-items__others__exhibit__boxes__body__price ¥###
-
-        %section.is-user-items__others__exhibit__boxes
-          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
-            %figure.is-user-items__others__exhibit__boxes__photo
-              = image_tag 'frema66img-sample3.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
-            .is-user-items__others__exhibit__boxes__body
-              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
-              .is-user-items__others__exhibit__boxes__body__price ¥###
-
-        %section.is-user-items__others__exhibit__boxes
-          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
-            %figure.is-user-items__others__exhibit__boxes__photo
-              = image_tag 'frema66img-sample3.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
-            .is-user-items__others__exhibit__boxes__body
-              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
-              .is-user-items__others__exhibit__boxes__body__price ¥###
-
-        %section.is-user-items__others__exhibit__boxes
-          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
-            %figure.is-user-items__others__exhibit__boxes__photo
-              = image_tag 'frema66img-sample3.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
-            .is-user-items__others__exhibit__boxes__body
-              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
-              .is-user-items__others__exhibit__boxes__body__price ¥###
-
-        %section.is-user-items__others__exhibit__boxes
-          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
-            %figure.is-user-items__others__exhibit__boxes__photo
-              = image_tag 'frema66img-sample3.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
-            .is-user-items__others__exhibit__boxes__body
-              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
-              .is-user-items__others__exhibit__boxes__body__price ¥###
-
-        %section.is-user-items__others__exhibit__boxes
-          = link_to root_path, class: 'is-user-items__others__exhibit__boxes__link' do
-            %figure.is-user-items__others__exhibit__boxes__photo
-              = image_tag 'frema66img-sample3.jpeg', class: 'is-user-items__others__exhibit__boxes__photo__img'
-            .is-user-items__others__exhibit__boxes__body
-              %h3.is-user-items__others__exhibit__boxes__body__name その他商品の名前
-              .is-user-items__others__exhibit__boxes__body__price ¥###
-
-
+        - @same_category_items.each do |item| 
+          - if item.id != @item.id  # 現在表示している商品は関連に表示しない
+            %section.is-user-items__others__exhibit__boxes
+              = link_to item_path(item.id), class: 'is-user-items__others__exhibit__boxes__link' do
+                %figure.is-user-items__others__exhibit__boxes__photo
+                  - thumbnail = Image.find_by(item_id: item.id) # サムネイルとして商品の先頭に登録されている画像のみを取り出す
+                  = image_tag "#{thumbnail.source}", class: 'is-user-items__others__exhibit__boxes__photo__img'
+                .is-user-items__others__exhibit__boxes__body
+                  %h3.is-user-items__others__exhibit__boxes__body__name 
+                    = item.name
+                  .is-user-items__others__exhibit__boxes__body__price 
+                  ¥
+                  = item.price
 
 
   = render 'shared/footer1'
-
-  -# = icon 'fas', 'angle-right'
