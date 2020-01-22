@@ -22,7 +22,10 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
 
+  def search
+    @items = Item.search(params[:keyword])
   end
 
   def get_category_children

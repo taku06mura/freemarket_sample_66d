@@ -1,0 +1,18 @@
+.search-sidebar {
+  width: 280px;
+  height: 600px;
+  margin-right: 40px;
+  background-color: gray;
+}
+.search-content {
+  width: 720px;
+}
+.is-item {
+  display: flex;
+  justify-content: space-between;
+  &-box {
+    height: 218px;
+    width: 160px;
+    padding: 0 20px 20px 0;
+  }
+}

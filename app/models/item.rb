@@ -37,4 +37,9 @@ class Item < ApplicationRecord
     def require_any_images
       errors.add("画像が登録されていません") if images.blank?
     end
+
+    def self.search(search)
+      return"キーワードを入力してください" unless search
+      Item.where('name LIKE ?', "%#{search}%")
+    end
 end

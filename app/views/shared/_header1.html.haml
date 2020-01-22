@@ -5,9 +5,10 @@
         = link_to root_path, class: 'fremalogo' do
           = image_tag 'fmarket_logo_red.svg'
       .header1-main__text__form
-        %input.search{placeholder: "何かお探しですか？", type: "search", name: "keyword"}/
-        %button.search-icon
-          = icon 'fas', 'search', class: 'search-button'
+        = form_tag(search_items_path,:method => 'get') do
+          = text_field_tag :keyword
+          = submit_tag '検索', :name => nil
+        = icon 'fas', 'search', class: 'search-button'
     .header1-main__nav
       .header1-main__nav__js
         .header1-main__nav__js__links
