@@ -55,6 +55,7 @@
         display: none;
       }
       &__dots {
+        margin-top: 8px;
         line-height: 0;
         &__inner {
           width: 60px;
@@ -91,6 +92,7 @@
     .is__table-data {
       margin: 0;
       width: 61%;
+      padding: 0 8px;
       background: #fff;
       &__category {
         display: block;
