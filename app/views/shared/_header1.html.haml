@@ -35,3 +35,7 @@
           = link_to root_path, class: "header1-main__nav__menu__link--mypage"  do
             = icon 'far', 'user', class: 'menuicon'
             マイページ
+        %li.header1-main__nav__menu__link
+          = link_to user_items_path, class: "header1-main__nav__menu__link--mypage"  do
+            = icon 'far', 'user', class: 'menuicon'
+            出品した商品
