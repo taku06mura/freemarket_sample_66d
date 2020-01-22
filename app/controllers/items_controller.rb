@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_parent, only: [:new, :create, ]
   def index
+    @items = Item.all
   end
 
   def show
