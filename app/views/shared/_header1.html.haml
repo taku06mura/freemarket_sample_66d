@@ -20,6 +20,8 @@
             ブランドから探す
 
 
+
+
       - if user_signed_in?      
         %ul.header1-main__nav__menu
           %li.header1-main__nav__menu__link
@@ -43,4 +45,5 @@
           %li= link_to "新規会員登録", new_user_registration_path, class: 'header1-main__nav__menu__member__register'
           .color-change
             %li= link_to "ログイン", new_user_session_path, class: 'header1-main__nav__menu__member__login'
+
 
