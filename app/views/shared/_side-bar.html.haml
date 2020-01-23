@@ -73,7 +73,7 @@
     %h.cinfig__title 設定
     %ul.config__list
       %li.config__list__contents
-        = link_to root_path, class: "config__list__contents--link" do
+        = link_to edit_mypage_path(@user.id), class: "config__list__contents--link" do
           プロフィール
           = icon('fas', 'chevron-right')
       %li.config__list__contents

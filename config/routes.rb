@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
-  resources :mypages, only: [:index, :edit,] do
+  resources :mypages, only: [:show, :edit,] do
     collection do
       get 'logout'
     end
