@@ -5,10 +5,10 @@
     %p アカウントをお持ちでない方はこちら
     = link_to "新規会員登録", new_user_registration_path, method: :get, class: "dsn-btn dsn-btn--no-account"
   .dsn-main__login_form
-    = link_to "#", class: "dsn-btn dsn-btn--facebook" do
+    = link_to user_facebook_omniauth_authorize_path, method: :post, class: "dsn-btn dsn-btn--facebook" do
       %i.fab.fa-facebook-square.fa-2x.dsn-icon
       facebookでログイン
-    = link_to "#", class: "dsn-btn dsn-btn--google" do
+    = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "dsn-btn dsn-btn--google" do
       = image_tag "Google_icon.png", size: "26x26", class: "dsn-icon"
       Googleでログイン
   .dsn-main__forms

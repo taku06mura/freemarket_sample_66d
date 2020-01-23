@@ -1,0 +1,18 @@
+= render 'shared/header1'
+%main.main
+  = render 'shared/side-bar'
+  .contents
+    .mo-header
+      出品した商品
+    %ul.mo-items
+      - @items.each do |item|
+        %li
+          = link_to item_path(item.id), class: "mo-items__link", method: :get do
+            - thumbnail = Image.find_by(item_id: item.id) # サムネイルとして商品の先頭に登録されている画像のみを取り出す
+            = image_tag "#{thumbnail.source}", size: "48x48", class: "mo-items___link__image"
+            .mo-items__link__name
+              = item.name
+      
+
+  = render 'shared/camera'
+= render 'shared/footer1'

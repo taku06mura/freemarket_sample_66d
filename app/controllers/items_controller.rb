@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_parent, only: [:new, :create, ]
+  before_action :set_parent, only: [:new, :create, :edit]
+  before_action :set_item, only: [:edit, :update]
   def index
     @items = Item.all
   end
@@ -16,7 +17,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
     else
@@ -24,8 +24,21 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def search
     @items = Item.search(params[:keyword])
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+
   end
 
   def get_category_children
@@ -41,9 +54,13 @@ class ItemsController < ApplicationController
   def set_parent
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
   
   def item_params
-    params.require(:item).permit(:name, :item_discription, :category_id, :size, :brand_name, :quolity, :prefecture, :price, :carriage_fee, :delivery, :days, images_attributes: [:source]).merge(saler_id: current_user.id)
+    params.require(:item).permit(:name, :item_discription, :category_id, :size, :brand_name, :quolity, :prefecture, :price, :carriage_fee, :delivery, :days, images_attributes: [:source, :_destroy, :id]).merge(saler_id: current_user.id)
   end
  
 end
