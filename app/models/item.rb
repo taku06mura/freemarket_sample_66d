@@ -39,7 +39,7 @@ class Item < ApplicationRecord
     end
 
     def self.search(search)
-      return"キーワードを入力してください" unless search
+      return　Item.all unless search
       Item.where('name LIKE ?', "%#{search}%")
     end
 end
