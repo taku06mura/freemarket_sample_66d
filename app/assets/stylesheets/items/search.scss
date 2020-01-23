@@ -7,12 +7,23 @@
 .search-content {
   width: 720px;
 }
-.is-item {
+.ise-item {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  list-style: none;
   &-box {
     height: 218px;
     width: 160px;
-    padding: 0 20px 20px 0;
+    box-sizing: border-box;
+    display: list-item;
+    margin: 0;
+    padding: 0px 20px 20px 0px;
+    &__image {
+      height: 160px;
+      width: 160px;
+    }
+    &__text {
+      padding: 8px 12px;
+    }
   }
 }
