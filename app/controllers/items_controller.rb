@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
 
   def search
     @items = Item.search(params[:keyword])
+  end
 
   def edit
     @item = Item.find(params[:id])
