@@ -87,3 +87,4 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'ancestry'
 gem 'jquery-rails'
+gem "omniauth-rails_csrf_protection"
