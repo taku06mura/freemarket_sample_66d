@@ -22,13 +22,12 @@ Rails.application.routes.draw do
     end
   end
   resources :mypages, only: [:show, :edit,] do
-    collection do
+    member do
+      get 'on_sale'
       get 'logout'
     end
   end
-  resources :purchase, only:[:index] do
-  end
-  resources :cards, only:[:index, :new] do
-  end
+  resources :purchase, only:[:index] 
+  resources :cards, only:[:show, :new] 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
