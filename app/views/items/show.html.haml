@@ -90,7 +90,9 @@
     %p.is-item-box__error-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
     
     .is-item-box__description
-      %p.is-item-box__description__inner ユーザーの商品説明が入る
+      .is-item-box__description__inner 
+        = simple_format @item.item_discription
+      
 
     .is-item-box__button
       .is-item-box__button__left
