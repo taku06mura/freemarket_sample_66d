@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_parent, only: [:new, :create, :edit]
-  before_action :set_item, only: [:edit, :update]
+  before_action :set_item, only: [:edit, :update, :destroy]
   def index
     @items = Item.all
   end
@@ -35,6 +35,12 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
+
+   def destroy
+    @item.destroy
+    redirect_to root_path
+   end
+
 
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children

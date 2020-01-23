@@ -83,9 +83,13 @@
         （税込）
       .is-item-stopfee 
         = @item.carriage_fee
+    - if @item.saler_id == current_user.id
+      = link_to edit_item_path(@item), class: 'is-item-buy-btn' do
+        編集画面に進む
+    - else
+      = link_to root_path , class: 'is-item-buy-btn' do
+        購入画面に進む
 
-    = link_to root_path , class: 'is-item-buy-btn' do
-      購入画面に進む
 
     %p.is-item-box__error-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
     
