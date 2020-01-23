@@ -11,7 +11,17 @@ crumb :profile do
   parent :mypage
 end
 
-# crumb :logout do
-#   link "ログアウト", logout_mypages_path
-#   parent :mypage
-# end
+crumb :exhibiting do
+  link "出品中", on_sale_mypage_path
+  parent :mypage
+end
+
+crumb :method_of_payment do
+  link "支払い方法", card_path
+  parent :mypage
+end
+
+crumb :logout do
+  link "ログアウト", logout_mypage_path
+  parent :mypage
+end
