@@ -7,11 +7,12 @@
         = link_to item_path(item.id), class: "ise-link" do
           .ise-item-box
             %figere.ise-item-box__image
-              = image_tag item.images[0].source.url
+              = image_tag item.images[0].source.url,width: "100%",height: "170px"
             .ise-item-box__text
               %h.ise-item-box__text--name
                 = item.name
               .ise-item-box__text--price 
+                ¥
                 = item.price
 
  
