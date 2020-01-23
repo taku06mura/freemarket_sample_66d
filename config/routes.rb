@@ -28,10 +28,7 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
-  resources :purchase, only:[:index] do
-  end
-  resources :cards, only:[:index, :new] do
-  end
-  resources :user_items, only: [:index]
+  resources :purchase, only:[:index] 
+  resources :cards, only:[:show, :new] 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
