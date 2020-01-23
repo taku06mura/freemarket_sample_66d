@@ -24,6 +24,11 @@ class ItemsController < ApplicationController
     end
   end
 
+
+  def search
+    @items = Item.search(params[:keyword])
+  end
+
   def edit
     @item = Item.find(params[:id])
   end
@@ -34,6 +39,7 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
+
   end
 
   def get_category_children
