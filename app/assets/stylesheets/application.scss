@@ -20,8 +20,9 @@
 @import "purchase/purchase_index.scss";
 @import "cards/cards_index.scss";
 @import "cards/cards_new.scss";
-@import "mypages/index.scss";
+@import "mypages/show.scss";
 @import "purchase/purchase_index.scss";
+@import "mypages/on_sale";
 
 body {
   background-color: $main_color;
