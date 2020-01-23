@@ -88,3 +88,4 @@ gem 'omniauth-google-oauth2'
 gem 'ancestry'
 gem 'jquery-rails'
 gem "gretel"
+gem "omniauth-rails_csrf_protection"
