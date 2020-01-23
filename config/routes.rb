@@ -24,8 +24,6 @@ Rails.application.routes.draw do
   resources :mypages, only: [:show, :edit,] do
     member do
       get 'on_sale'
-    end
-    collection do
       get 'logout'
     end
   end

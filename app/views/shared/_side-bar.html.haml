@@ -97,6 +97,6 @@
           電話番号の確認
           = icon('fas', 'chevron-right')
       %li.config__list__contents
-        = link_to "#", class: "config__list__contents--link" do
+        = link_to logout_mypage_path(@user.id), class: "config__list__contents--link" do
           ログアウト
           = icon('fas', 'chevron-right')
