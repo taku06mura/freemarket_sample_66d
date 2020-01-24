@@ -31,5 +31,6 @@ Rails.application.routes.draw do
   end
   resources :purchase, only:[:index] 
   resources :cards, only:[:show, :new] 
+  resources :addresses, only: :show
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
