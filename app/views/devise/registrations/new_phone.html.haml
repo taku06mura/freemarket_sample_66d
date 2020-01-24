@@ -1,5 +1,6 @@
 
-= render "shared/header2.html.haml".urn-header
+= render "shared/header2.html.haml"
+.urn-header
 .urn-main.urn-main--phone
   .urn-main__head.urn-main__head--phone
     %h2 電話番号の確認
@@ -7,6 +8,8 @@
     .urn-main__forms__single-content
       = form_for @user, url: create_phone_path, mehod: :post do |f|
         = f.fields_for :personal_datum do |fin|
+          .devise-error
+            = render 'devise/shared/error_messages', model: f.object
           .urn-main__forms__single-content__group.urn-main__forms__single-content__group--top
             .urn-div
               .urn-label

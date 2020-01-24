@@ -5,9 +5,9 @@
         = link_to root_path, class: 'fremalogo' do
           = image_tag 'fmarket_logo_red.svg'
       .header1-main__text__form
-        %input.search{placeholder: "何かお探しですか？", type: "search", name: "keyword"}/
-        %button.search-icon
-          = icon 'fas', 'search', class: 'search-button'
+        = form_tag(search_items_path,:method => 'get') do
+          = text_field_tag :keyword
+          = submit_tag '検索', :name => nil
     .header1-main__nav
       .header1-main__nav__js
         .header1-main__nav__js__links
@@ -18,20 +18,32 @@
           = link_to root_path, class: "header1-main__nav__js__links__link"  do
             = icon 'fas', 'tag', class: 'navicon'
             ブランドから探す
-      %ul.header1-main__nav__menu
-        %li.header1-main__nav__menu__link
-          = link_to root_path, class: "header1-main__nav__menu__link--mypage"  do
-            = icon 'far', 'heart', class: 'menuicon'
-            いいね！一覧
-        %li.header1-main__nav__menu__link
-          = link_to root_path, class: "header1-main__nav__menu__link--mypage"  do
-            = icon 'far', 'bell', class: 'menuicon'
-            お知らせ
-        %li.header1-main__nav__menu__link
-          = link_to root_path, class: "header1-main__nav__menu__link--mypage"  do
-            = icon 'fas', 'check', class: 'menuicon'
-            やることリスト
-        %li.header1-main__nav__menu__link
-          = link_to root_path, class: "header1-main__nav__menu__link--mypage"  do
-            = icon 'far', 'user', class: 'menuicon'
-            マイページ
+
+
+
+
+      - if user_signed_in?      
+        %ul.header1-main__nav__menu
+          %li.header1-main__nav__menu__link
+            = link_to root_path, class: "header1-main__nav__menu__link--mypage"  do
+              = icon 'far', 'heart', class: 'menuicon'
+              いいね！一覧
+          %li.header1-main__nav__menu__link
+            = link_to root_path, class: "header1-main__nav__menu__link--mypage"  do
+              = icon 'far', 'bell', class: 'menuicon'
+              お知らせ
+          %li.header1-main__nav__menu__link
+            = link_to root_path, class: "header1-main__nav__menu__link--mypage"  do
+              = icon 'fas', 'check', class: 'menuicon'
+              やることリスト
+          %li.header1-main__nav__menu__link
+            = link_to mypage_path(current_user.id), class: "header1-main__nav__menu__link--mypage"  do
+              = icon 'far', 'user', class: 'menuicon'
+              マイページ
+      - else
+        %ul.header1-main__nav__menu__member
+          %li= link_to "新規会員登録", new_user_registration_path, class: 'header1-main__nav__menu__member__register'
+          .color-change
+            %li= link_to "ログイン", new_user_session_path, class: 'header1-main__nav__menu__member__login'
+
+

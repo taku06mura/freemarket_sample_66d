@@ -18,7 +18,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:after_new_user] = user_params[:personal_datum_attributes]
     @user = User.new(session[:user_params])
     @user.build_personal_datum(session[:after_new_user])
-    render :new_phone
+    @user.personal_datum[:phone_number] = "00000"
+    if @user.valid?(:validates_create_user)
+      render :new_phone 
+    else
+      @user.errors
+      @errors = @user.errors.full_messages 
+      render :new, params: @errors
+    end
   end
 
   def new_phone
@@ -29,9 +36,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create_phone
     session[:after_create_phone]= user_params[:personal_datum_attributes]
     session[:after_create_phone].merge!(session[:after_new_user])
-    @user = User.new
+    @user = User.new(email: "dammy@mail.com", password: "dammypassword010")
     @user.build_personal_datum(session[:after_create_phone])
-    render :new_address
+    if @user.valid?(:validates_create_phone)
+      render :new_address
+    else
+      @user.errors 
+      @errors = @user.errors.full_messages 
+      render :new_phone, params: @errors
+    end
   end
 
   def new_address
@@ -41,9 +54,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create_address
     session[:after_create_address]= user_params[:address_attributes]
-    @user = User.new
+    @user = User.new(email: "dammy@mail.com", password: "dammypassword010")
     @user.build_address(session[:after_create_address])
-    render :new_card
+    if @user.valid?(:validates_create_address)
+      render :new_card
+    else
+      @user.errors 
+      @errors = @user.errors.full_messages 
+      render :new_address, params: @errors
+    end
   end
 
   def new_card
@@ -63,6 +82,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def complete
+  end
+
+  def create
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token
+      params[:user][:password] = pass
+      params[:user][:password_confirmation] = pass
+    end
+    super
   end
     
   # GET /resource/edit

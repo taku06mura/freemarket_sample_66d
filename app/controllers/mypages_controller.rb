@@ -1,12 +1,24 @@
 class MypagesController < ApplicationController
-  
-  def index
+  before_action :set_user
+
+  def show
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def logout
+  end
+
+  def on_sale
+    @items = Item.where(saler_id: params[:id])
+  end
+
+  private
+  
+  def set_user
+    @user = User.find(params[:id])
   end
 
 end

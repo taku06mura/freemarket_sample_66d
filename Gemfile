@@ -79,7 +79,7 @@ gem 'mini_magick'
 gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'fog-aws'
-gem 'active_hash'
+gem 'rails-i18n' #エラーメッセージ日本語化
 
 # authentication with other service
 gem 'omniauth'
@@ -89,3 +89,5 @@ gem 'omniauth-google-oauth2'
 gem 'ancestry'
 gem 'jquery-rails'
 gem 'payjp'
+gem "gretel"
+gem "omniauth-rails_csrf_protection"

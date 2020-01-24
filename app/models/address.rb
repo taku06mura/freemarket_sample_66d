@@ -1,11 +1,11 @@
 class Address < ApplicationRecord
 
   # validation
-  validates :postal_code,             presence: true, length: {maximum: 10}, format: {with: /\A[0-9]{7}\z/}
-  validates :prefecture,              presence: true, length: {maximum: 30}
-  validates :municipality,            presence: true, length: {maximum: 30}
-  validates :house_number,            presence: true, length: {maximum: 100}
-  validates :building_name,           length: {maximum: 100}
+  validates :postal_code,             presence: true, length: {maximum: 10}, format: {with: /\A[0-9]{7}\z/, message: "は半角数字, ハイフンなし7桁で入力してください"}, on: :validates_create_address
+  validates :prefecture,              presence: true, length: {maximum: 30}, on: :validates_create_address
+  validates :municipality,            presence: true, length: {maximum: 30}, on: :validates_create_address
+  validates :house_number,            presence: true, length: {maximum: 100}, on: :validates_create_address
+  validates :building_name,           length: {maximum: 100}, on: :validates_create_address
 
   # assosiation
   belongs_to :user, optional: true

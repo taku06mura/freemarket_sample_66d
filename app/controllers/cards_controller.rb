@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
-  def index
+  def show
+    @user = User.find(params[:id])
   end
 
   def new

@@ -19,71 +19,18 @@
           .ii-contents-nav__items
             .ii-contents-nav__items__list
               %ul.ii-contents-nav__items__list__items
-                %li.ii-contents-nav__items__list__items__item
-                  .ii-contents-nav__items__list__items__item__link
-                    = link_to "", class: "ii-link" do
-                      %figure.ii-link__btn
-                        %figcaption
-                          %span
-                        .ii-link__btn__img
-                          %span
-                %li.ii-contents-nav__items__list__items__item
-                  .ii-contents-nav__items__list__items__item__link
-                    = link_to "", class: "ii-link" do
-                      %figure.ii-link__btn
-                        %figcaption
-                          %span
-                        .ii-link__btn__img
-                          %span
-                %li.ii-contents-nav__items__list__items__item
-                  .ii-contents-nav__items__list__items__item__link
-                    = link_to "", class: "ii-link" do
-                      %figure.ii-link__btn
-                        %figcaption
-                          %span
-                        .ii-link__btn__img
-                          %span
-                %li.ii-contents-nav__items__list__items__item
-                  .ii-contents-nav__items__list__items__item__link
-                    = link_to "", class: "ii-link" do
-                      %figure.ii-link__btn
-                        %figcaption
-                          %span
-                        .ii-link__btn__img
-                          %span
-                %li.ii-contents-nav__items__list__items__item
-                  .ii-contents-nav__items__list__items__item__link
-                    = link_to "", class: "ii-link" do
-                      %figure.ii-link__btn
-                        %figcaption
-                          %span
-                        .ii-link__btn__img
-                          %span
-                %li.ii-contents-nav__items__list__items__item
-                  .ii-contents-nav__items__list__items__item__link
-                    = link_to "", class: "ii-link" do
-                      %figure.ii-link__btn
-                        %figcaption
-                          %span
-                        .ii-link__btn__img
-                          %span
-                
-        .ii-contents
-        .ii-contents-nav
-          .ii-contents-nav__name
-            %h1.ii-contents-nav__name--title 商品一覧
-            = link_to "もっとみる >", root_path, class: "ii-contents-nav__name--link"
-          .ii-contents-nav__items
-            .ii-contents-nav__items__list
-              %ul.ii-contents-nav__items__list_items
-                %li.ii-contents-nav__items__list__items__item
-                  .ii-contents-nav__items__list__items__item__link
-                    = link_to "", class: "ii-link" do
-                      %figure.ii-link__btn
-                        %figcaption
-                          %span
-                        .ii-link__btn__img
-                          %span
+                - @items.each do |item|
+                  = link_to "items/#{item.id}",class: "ii-contents-nav__items__list__items__item", method: :get do
+                    %li
+                      = image_tag item.images[0].source.url,width: "100%",height: "170px"
+                      .ii-contents-nav__items__list__items__item__price
+                        .ii-contents-nav__items__list__items__item__price__box
+                          ¥ 
+                          = item.price.to_s(:delimited)
+                      .ii-name
+                        = item.name.truncate(20)
+
+
   .ii-camera
     = link_to items_path, class: "ii-camera__btn" do
       .ii-camera__btn__box
