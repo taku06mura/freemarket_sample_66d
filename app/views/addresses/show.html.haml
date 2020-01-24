@@ -1,0 +1,47 @@
+= render 'shared/header2'
+%main.main
+  = render 'shared/side-bar'
+  .contents
+    .ps-title
+      %h 本人登録情報の確認
+    %form.ps-form
+      .ps-form__message
+        %p.ps-form__message__text 
+          お客さまの本人情報をご登録ください。
+          %br 
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        .ps-form__message__link
+          = link_to  root_path, class: "ps-form__message__link--title" do
+            本人確認書類のアップロードについて
+            = icon('fas', 'chevron-right')
+      .ps-form__input
+        %label.ps-form__input--label お名前
+        %p 吉田
+      .ps-form__input
+        %label.ps-form__input--label お名前カナ
+        %p ヨシダ
+      .ps-form__input
+        %label.ps-form__input--label 生年月日
+        %p 1995/5/30
+      .ps-form__input
+        %label.ps-form__input--label 郵便番号
+        %span.ps-form__input--span 任意
+        %input.ps-form__input--form{placeholder: "例）123456", type: "text"}
+      .ps-form__input
+        %label.ps-form__input--label 都道府県
+        %span.ps-form__input--span 任意
+        .ps-form__input--select
+      .ps-form__input
+        %label.ps-form__input--label 市町村
+        %span.ps-form__input--span 任意
+        %input.ps-form__input--form{placeholder: "横浜市緑区", type: "text"}
+      .ps-form__input
+        %label.ps-form__input--label 番地
+        %span.ps-form__input--span 任意
+        %input.ps-form__input--form{placeholder: "青山1-1-1", type: "text"}
+      .ps-form__input
+        %label.ps-form__input--label 建物名
+        %span.ps-form__input--span 任意
+        %input.ps-form__input--form{placeholder: "柳ビル103", type: "text"}
+      .ps-form__input
+        %input.ps-form__input--btn{type: "submit", value: "登録"}
