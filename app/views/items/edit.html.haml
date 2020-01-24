@@ -150,8 +150,12 @@
                 またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
               .in-main__container__sell__form__content5__text
                 また、出品をもちまして加盟店規約に同意したことになります。
-              
-              = form.submit '登録する', class: "in-btn-red"
+              - if @item.saler_id == current_user.id
+                = form.submit '登録する', class: "in-btn-red"
+                = link_to "商品を削除する", item_path(@item), method: :delete, data: { confirm: "本当に削除しますか?"}, class: "in-btn-red", id: "item-destroy"
+              - else
+                %h.in-btn-red
+                  この商品の編集はできません
               %button.in-btn-gray{type: "back"}
                 戻る
 
