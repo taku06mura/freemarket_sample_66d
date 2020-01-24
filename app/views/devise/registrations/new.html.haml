@@ -6,6 +6,8 @@
   .urn-main__forms
     .urn-main__forms__single-content
       = form_for @user, url: create_user_path, method: :post do |f|
+        .devise-error
+          = render 'devise/shared/error_messages', model: f.object
         .urn-main__forms__single-content__group.urn-main__forms__single-content__group--top
           .urn-label  
             ニックネーム
@@ -24,7 +26,7 @@
           .urn-require
             必須
           = f.password_field :password, autocomplete: "new-password", class: "urn-form", placeholder: "7文字以上の半角英数字"
-          %p.urn-form-info-text ※ 英数字と数字の両方を含めて設定してください
+          %p.urn-form-info-text ※ 英字と数字の両方を含めて設定してください
         .urn-main__forms__single-content__group
           %h3 本人確認
           %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客様に公開されることはありません。 
