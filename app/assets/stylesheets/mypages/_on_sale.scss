@@ -12,6 +12,10 @@
 }
 .mo-items{
   width: 100%;
+  &__list {
+    display: flex;
+    background-color: #fafafa;
+  }
   &__link{
     display: block;
     height: 84px;
@@ -28,6 +32,15 @@
         line-height: 52px;
         height: 52px;
         font-size: 14px;
+      }
+      &__edit {
+        margin-left: 20px;
+        display: block;
+        text-decoration: none;
+        line-height: 84px;
+        width: 70px;
+        font-size: 14px;
+        color: blue;
       }
   }
 }

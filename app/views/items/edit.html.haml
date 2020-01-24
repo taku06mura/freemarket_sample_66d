@@ -152,7 +152,7 @@
                 また、出品をもちまして加盟店規約に同意したことになります。
               - if @item.saler_id == current_user.id
                 = form.submit '登録する', class: "in-btn-red"
-                = link_to "商品を削除する", "/items/#{@item.id}", method: :delete, data: { confirm: "本当に削除しますか?"}, class: "in-btn-red", id: "item-destroy"
+                = link_to "商品を削除する", item_path(@item), method: :delete, data: { confirm: "本当に削除しますか?"}, class: "in-btn-red", id: "item-destroy"
               - else
                 %h.in-btn-red
                   この商品の編集はできません
