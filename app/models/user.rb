@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   # validation
-  validates :email,                 presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
-  validates :password,              presence: true, length: {minimum: 7, maximum: 128},    format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,128}+\z/i }
-  validates :nickname,              presence: true, length: {maximum: 10}
+  validates :email,                 presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: "は半角英数字で'~~~@~~.~~'の形式で入力してください" }, on: :validates_create_user
+  validates :password,              presence: true, length: {minimum: 7, maximum: 128},    format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,128}+\z/i, message: "は半角英数字で、英字と数字を両方含めて設定してください" }, on: :validates_create_user
+  validates :nickname,              presence: true, length: {maximum: 10}, on: :validates_create_user
 
   # assosiation
   has_one :address, dependent: :destroy
