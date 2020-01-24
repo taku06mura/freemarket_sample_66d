@@ -79,6 +79,7 @@ gem 'mini_magick'
 gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'fog-aws'
+gem 'rails-i18n' #エラーメッセージ日本語化
 
 # authentication with other service
 gem 'omniauth'
