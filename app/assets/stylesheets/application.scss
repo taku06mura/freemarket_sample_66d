@@ -9,14 +9,11 @@
 @import "user/devise-session-new";
 @import "modules/show.scss";
 @import "items/new";
-
 @import "items/search";
 @import "modules/header2.scss";
 @import "modules/footer2.scss";
-
 @import "modules/header2";
 @import "modules/footer2";
-
 @import "mypages/mypages_edit.scss";
 @import "modules/side-bar";
 @import "modules/main";
@@ -30,6 +27,7 @@
 @import "purchase/purchase_index.scss";
 @import "modules/bread";
 @import "mypages/on_sale";
+@import "modules/devise-error";
 
 body {
   background-color: $main_color;
