@@ -83,8 +83,21 @@
         （税込）
       .is-item-stopfee 
         = @item.carriage_fee
-    = link_to root_path , class: 'is-item-buy-btn' do
-      購入画面に進む
+    - if user_signed_in?
+      - if @item.saler_id == current_user.id
+        = link_to edit_item_path(current_user.id), class: 'is-item-buy-btn' do
+          商品情報の編集に進む
+      - else 
+        - if @item.buyer_id == nil
+          = link_to root_path, class: 'is-item-buy-btn' do
+            購入画面に進む
+        - else
+          = link_to root_path, class: 'is-item-buy-btn' do
+            この商品は購入されています
+    - else
+      = link_to new_user_registration_path, class: 'is-item-buy-btn' do
+        購入画面に進む
+      
 
 
     %p.is-item-box__error-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
