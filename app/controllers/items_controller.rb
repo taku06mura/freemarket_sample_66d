@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
     else
@@ -26,7 +27,7 @@ class ItemsController < ApplicationController
 
 
   def search
-    @items = Item.search(params[:keyword])
+    @items = Item.search(params[:keyword]).page(params[:page]).per(5)
   end
 
   def edit
