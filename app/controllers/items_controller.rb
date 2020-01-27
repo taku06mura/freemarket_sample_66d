@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
 
 
   def search
-    @items = Item.search(params[:keyword]).page(params[:page]).per(5)
+    @items = Item.search(params[:keyword]).page(params[:page]).per(16)
   end
 
   def edit
