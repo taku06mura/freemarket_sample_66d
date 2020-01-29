@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_parent, only: [:new, :create, :edit]
   before_action :set_item, only: [:edit, :update, :destroy]
   def index
-    @items = Item.all
+    @items = Item.all.order("created_at DESC").limit(15)
   end
 
   def show
