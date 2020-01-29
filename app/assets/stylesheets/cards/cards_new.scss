@@ -27,6 +27,7 @@
           &__label{
             font-weight: 600;
             display: flex;
+            font-size: 18px;
             &__span{
               background: #ea352d;
               margin: 0 0 0 8px;
@@ -35,6 +36,7 @@
               color: #fff;
               font-size: 12px;
               vertical-align: top;
+              line-height: 18px;
             }
           }
           .cn-input{
@@ -118,7 +120,9 @@
               margin-top: 5px;
             }
             &__text{
+              font-size: 14px;
               color: #0099e8;
+              line-height: 24px;
             }
           }
 

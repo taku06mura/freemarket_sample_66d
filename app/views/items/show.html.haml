@@ -85,11 +85,11 @@
         = @item.carriage_fee
     - if user_signed_in?
       - if @item.saler_id == current_user.id
-        = link_to edit_item_path(current_user.id), class: 'is-item-buy-btn' do
+        = link_to edit_item_path(@item), class: 'is-item-buy-btn' do
           商品情報の編集に進む
       - else 
-        - if @item.buyer_id == nil
-          = link_to root_path, class: 'is-item-buy-btn' do
+        - if @item.buyer_id == nil 
+          = link_to purchase_index_path, class: 'is-item-buy-btn' do
             購入画面に進む
         - else
           = link_to root_path, class: 'is-item-buy-btn' do

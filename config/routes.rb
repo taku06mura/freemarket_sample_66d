@@ -29,8 +29,17 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
-  resources :purchase, only:[:index] 
-  resources :cards, only:[:show, :new] 
+  resources :purchase, only: [:index, :show] 
+  resources :cards, only: [:show] do
+    collection do
+      get 'new'
+      post 'create'
+    end
+    member do
+      # post 'delete', to: 'card#delete'
+      post 'confirmation'
+    end
+  end 
   resources :addresses, only: :show
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
