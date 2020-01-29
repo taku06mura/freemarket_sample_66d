@@ -1,6 +1,18 @@
 = render 'shared/header1'
 %main.main
   .search-sidebar
+    = search_form_for @search do |f|
+      %h.search-sideber__box__text 詳細検索
+      .search-sideber__box__keyword
+        = f.label :name_cont
+        = icon 'fas','plus', class: 'ise-icon'
+        %span キーワードを追加する
+        = f.search_field :name_cont
+      .search-sideber__box__group__category.ise-group
+      .search-sideber__box__group__brand.ise-group
+      .search-sideber__box__group__size.ise-group
+      .search-sideber__box__group__btn.ise-group
+        = f.submit "完了"
   .search-content
     %section.ise-item
       - @items.each do |item|
@@ -15,4 +27,3 @@
                 ¥
                 = item.price
 
- 

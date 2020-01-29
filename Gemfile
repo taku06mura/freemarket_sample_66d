@@ -89,3 +89,4 @@ gem 'ancestry'
 gem 'jquery-rails'
 gem "gretel"
 gem "omniauth-rails_csrf_protection"
+gem 'ransack'
