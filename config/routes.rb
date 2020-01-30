@@ -37,16 +37,7 @@ Rails.application.routes.draw do
       get 'done'
     end
   end
-  resources :cards, only: [:show] do
-    collection do
-      get 'new'
-      post 'create'
-    end
-    member do
-      # post 'delete', to: 'card#delete'
-      post 'confirmation'
-    end
-  end 
+  resources :cards, only: [:show, :new, :create] 
   resources :addresses, only: :show
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
