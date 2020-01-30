@@ -10,14 +10,12 @@
   background-position: center center;
   &__main {
     display: flex;
-    -webkit-box-pack: justify;
     justify-content: space-between;
     width: 750px;
     margin: 0px auto;
     &__left {
       display: flex;
       flex-direction: column;
-      -webkit-box-pack: center;
       justify-content: center;
       h1 {
         color: rgb(255, 255, 255);
@@ -38,13 +36,13 @@
           width: 68px;
         }
         .logo-app {
-          height: 20px;  //本物は40px
+          height: 40px;
           margin-right: 8px;
-          width: 60px;  //本物は144px
+          width: 144px;
         }
         .logo-google {
-          height: 20px;  //本物は40px
-          width: 60px;  //本物は144px
+          height: 40px;
+          width: 144px;
         }
       }
     }
@@ -77,7 +75,6 @@
       }
     li {
       margin: 14px 0 0;
-      text-align: -webkit-match-parent;
     }
     &__info {
       padding: 0 20px 0 0;
@@ -142,7 +139,6 @@
   &__bottom {
     margin: 30px auto 20px;
     width: 1020px;
-    -webkit-box-align: center;
     align-items: center;
     display: flex;
     &__logo {
