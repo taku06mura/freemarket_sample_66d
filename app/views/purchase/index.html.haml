@@ -57,9 +57,11 @@
               = current_user.nickname
 
       .pi-main__container__form__section
-        - if card.present?
-          = link_to puchase_path(current_user_id)
-        %button.pi-main__container__form__section__button{disabled: "disabled", type: "submit"} 購入する
+        - if current_user.card.present?
+          = link_to "購入する", pay_item_path(@item.id, item_id: @item.id), method: :post, class: 'pi-main__container__form__section__button', disabled: "disabled", type: "submit" 
+        - else
+          = link_to "クレジットカードを登録する", cards_path(@item.id), method: :get, class: 'pi-main__container__form__section__button', disabled: "disabled", type: "submit"    
+        
         
 
 
