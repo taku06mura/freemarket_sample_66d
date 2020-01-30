@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_parent, only: [:new, :create, :edit]
   before_action :set_item, only: [:edit, :update, :destroy, :show, :pay]
   def index
-    @items = Item.all
+    @items = Item.all.order("created_at DESC").limit(15)
   end
 
   def show
@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
 
 
   def search
-    @items = Item.search(params[:keyword])
+    @items = Item.search(params[:keyword]).page(params[:page]).per(16)
   end
 
   def pay

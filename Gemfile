@@ -91,3 +91,4 @@ gem 'jquery-rails'
 gem 'payjp'
 gem "gretel"
 gem "omniauth-rails_csrf_protection"
+gem 'kaminari'

@@ -12,7 +12,6 @@ $(function(){
                             <option value="---" data-category="---">---</option>
                             ${insertHTML}
                           <select>
-                          <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
                         </div>
                       </div>`;
     $('#categoryForm').append(childSelectHtml);
@@ -26,7 +25,6 @@ $(function(){
                                   <option value="---" data-category="---">---</option>
                                   ${insertHTML}
                                 </select>
-                                <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
                               </div>
                             </div>`;
     $('#categoryForm').append(grandchildSelectHtml);
