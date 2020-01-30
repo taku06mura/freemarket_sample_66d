@@ -60,7 +60,7 @@
         - if current_user.card.present?
           = link_to "購入する", pay_item_path(@item.id), method: :post, class: 'pi-main__container__form__section__button', disabled: "disabled", type: "submit" 
         - else
-          = link_to "クレジットカードを登録する", cards_path(@item.id), method: :get, class: 'pi-main__container__form__section__button', disabled: "disabled", type: "submit"    
+          = link_to "クレジットカードを登録する", "cards/new", method: :get, class: 'pi-main__container__form__section__button', disabled: "disabled", type: "submit"    
         
         
 
