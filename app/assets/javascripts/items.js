@@ -27,7 +27,7 @@ $(function(){
     const targetIndex = $(this).parent().data('index');
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
-    if ($('.js-file_group').length > 10) {
+    if ($('.js-file_group').length > 9) {
       appendMessage();
     } else if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
