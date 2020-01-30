@@ -6,8 +6,9 @@
           = image_tag 'fmarket_logo_red.svg'
       .header1-main__text__form
         = form_tag(search_items_path,:method => 'get') do
-          = text_field_tag :keyword
-          = submit_tag '検索', :name => nil
+          = text_field_tag :keyword, '', class:'search-form', placeholder: "何かお探しですか？"
+          = button_tag type: 'submit', :name => nil, class: 'search-icon' do
+            = icon 'fas', 'search'
     .header1-main__nav
       .header1-main__nav__js
         .header1-main__nav__js__links

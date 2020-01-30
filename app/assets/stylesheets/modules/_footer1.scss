@@ -6,7 +6,7 @@
   margin-top: auto;
   display: block;
   color: rgb(255, 255, 255);
-  background-image: image-url("images-bgi.jpeg");
+  background-image: image-url("imagenight-bgi2.jpg");
   background-position: center center;
   &__main {
     display: flex;
@@ -67,16 +67,16 @@
   &__box {
     width: 1020px;
     display: flex;
-    margin-top: 18px;
     margin: 0 auto;
     padding: 0;
     a:hover {
       text-decoration:underline;
       }
     li {
-      margin: 14px 0 0;
+      margin: 8px 0 0;
     }
     &__info {
+      margin-top: 18px;
       padding: 0 20px 0 0;
       width: 20%;
       h1 {
@@ -90,8 +90,9 @@
       }
     }
     &__guide {
+      margin-top: 18px;
       width: 23%;
-      padding: 0 40px 0 0;
+      padding: 0 10px 0 0;
       vertical-align: top;
       h2 {
         font-size: 16px;
@@ -104,6 +105,7 @@
       }
     }
     &__service {
+      margin-top: 18px;
       padding: 0 40px 0 0;
       width: 42%;
       h3 {
@@ -112,6 +114,8 @@
         line-height: 1.4;
       }
       &__link1 {
+        width: 180px;
+        padding: 0 30px 0 0;
         display: block;
         line-height: 1.5em;
         float: left;
@@ -122,6 +126,7 @@
       }
     }
     &__country {
+      margin-top: 18px;
       width: auto;
       h4 {
         font-size: 16px;
@@ -132,8 +137,12 @@
         display: block;
         line-height: 1.5em;
         white-space: nowrap;
-
       }
+    }
+    .fo1-icon {
+      justify-content: space-between;
+      font-size: 24px;
+      margin: 16px 18px 0 0;
     }
   }
   &__bottom {
@@ -142,9 +151,9 @@
     align-items: center;
     display: flex;
     &__logo {
-      text-align: center;
-      color: inherit;
-      text-decoration: none;
+      display: inline-block;
+      margin-right: 10px;
+      width: auto;
       .fremalogo-footer {
         height: 31px;
         width: 124px;
