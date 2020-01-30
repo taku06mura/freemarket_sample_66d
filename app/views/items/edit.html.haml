@@ -4,4 +4,5 @@
   .in-main__container
     = form_with model: @item, url: "/items/#{@item.id}", class: "in-main__container__sell", local: true do |form|
       = render partial: "form", locals: { form: form }
+
 = render 'shared/footer2'
