@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
 
 
   def search
-    @items = Item.search(params[:keyword])
+    @items = Item.search(params[:keyword]).page(params[:page]).per(16)
   end
 
   def pay

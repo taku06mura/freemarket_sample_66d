@@ -70,6 +70,7 @@
                   .in-main__container__sell__form__content2__inner__select__wrappe
                     = icon 'fa', 'chevron-down', class: 'in-fa'
                     %select.button-in#parent_category
+                      %option{:value => "--"} --
                       - @category_parent_array.each do |c|
                         %option{:value => "#{c}"}= c
 
