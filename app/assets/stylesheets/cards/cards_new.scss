@@ -67,7 +67,7 @@
             margin: 8px 0 0;
             position: relative;
             display: flex;
-            background-color: #fff;
+            background-color: #f5f5f5;
             .cn-select{
               width: calc(100% - 36px);
               position: relative;
@@ -81,6 +81,7 @@
               line-height: 1.5;
               cursor: pointer;
               -webkit-appearance: none;
+              background-color: #fff;
             }
             .cn-fa{
               font-size: 20px;
