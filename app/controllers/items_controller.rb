@@ -32,17 +32,16 @@ class ItemsController < ApplicationController
 
   def pay
     @item = Item.find(params[:id])
-    @user = User.find(current_user.id)
-    card = @user.card
+    card = current_user.card
     id = card.customer_id
     @item.update(buyer_id: current_user.id)
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     charge = Payjp::Charge.create(
     amount: @item.price,
-    customer: @user.card.customer_id,
+    customer: current_user.card.customer_id,
     currency: 'jpy'
     )
-    redirect_to "/purchase/done"
+    redirect_to done_purchase_index_path
     
   end
 
