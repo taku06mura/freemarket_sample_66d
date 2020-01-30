@@ -22,6 +22,9 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
+    member do
+      post 'pay'
+    end
   end
   resources :mypages, only: [:show, :edit,] do
     member do
@@ -29,8 +32,12 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
-  resources :purchase, only:[:index] 
-  resources :cards, only:[:show, :new] 
+  resources :purchase, only: [:index] do
+    collection do
+      get 'done'
+    end
+  end
+  resources :cards, only: [:show, :new, :create] 
   resources :addresses, only: :show
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

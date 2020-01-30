@@ -31,9 +31,5 @@
                         = item.name.truncate(20)
 
 
-  .ii-camera
-    = link_to items_path, class: "ii-camera__btn" do
-      .ii-camera__btn__box
-        .ii-camera__btn__box--text 出品
-        = icon('fas', 'camera')
+  = render 'shared/camera'
   = render 'shared/footer1'

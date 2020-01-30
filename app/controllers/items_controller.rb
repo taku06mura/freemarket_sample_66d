@@ -1,12 +1,11 @@
 class ItemsController < ApplicationController
   before_action :set_parent, only: [:new, :create, :edit]
-  before_action :set_item, only: [:edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :destroy, :show, :pay]
   def index
-    @items = Item.all
+    @items = Item.all.order("created_at DESC").limit(15)
   end
 
   def show
-    @item = Item.find(params[:id])
     @saler_other_items = Item.where(saler_id: @item.saler.id) 
     @same_category_items = Item.where(category_id: @item.category.id)
   end
@@ -30,8 +29,19 @@ class ItemsController < ApplicationController
     @items = Item.search(params[:keyword])
   end
 
+  def pay
+    @item.update(buyer_id: current_user.id)
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: @item.price,
+    customer: current_user.card.customer_id,
+    currency: 'jpy'
+    )
+    redirect_to done_purchase_index_path
+    
+  end
+
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
