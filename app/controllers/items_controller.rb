@@ -1,12 +1,11 @@
 class ItemsController < ApplicationController
   before_action :set_parent, only: [:new, :create, :edit]
-  before_action :set_item, only: [:edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :destroy, :show, :pay]
   def index
     @items = Item.all
   end
 
   def show
-    @item = Item.find(params[:id])
     @saler_other_items = Item.where(saler_id: @item.saler.id) 
     @same_category_items = Item.where(category_id: @item.category.id)
   end
@@ -31,9 +30,6 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    @item = Item.find(params[:id])
-    card = current_user.card
-    id = card.customer_id
     @item.update(buyer_id: current_user.id)
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     charge = Payjp::Charge.create(
@@ -46,7 +42,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
