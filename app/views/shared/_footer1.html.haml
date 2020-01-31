@@ -6,12 +6,12 @@
       .aside__main__left__api
         = link_to root_path, class: 'logo-red' do
           = image_tag 'logo_red.svg'
-        = link_to root_path, class: 'logo-app' do
-          = image_tag 'logo_white.svg'
-        = link_to root_path, class: 'logo-google' do
-          = image_tag 'logo_white.svg'
+        = link_to root_path do
+          = image_tag 'app-store.png', class: 'logo-app'
+        = link_to root_path do
+          = image_tag 'google-play.png', class: 'logo-google'
     .aside__main__right
-      = image_tag 'image-bgi2.jpg', class: 'image-bgi2'
+      = image_tag 'image-bgi2.jpeg', class: 'image-bgi2'
 
 
 .footer1
@@ -35,9 +35,8 @@
           = link_to root_path, class: "footer-link"  do
             フリマ66dロゴ利用ガイドライン
         %li.footer1__box__info__link__list
-          = icon 'fab', 'facebook', class: 'icon'
-        %li.footer1__box__info__link__list
-          = icon 'fab', 'twitter', class: 'icon'
+          = icon 'fab', 'facebook', class: 'fo1-icon'
+          = icon 'fab', 'twitter', class: 'fo1-icon'
     .footer1__box__guide
       %h2 ヘルプ&ガイド
       %ul.footer1__box__guide__link
@@ -104,7 +103,7 @@
             United States
   .footer1__bottom
     .footer1__bottom__logo
-      = link_to root_path, class: 'fremalogo-footer' do
-        = image_tag 'fmarket_logo_red.svg'
+      = link_to root_path do
+        = image_tag 'logo_white.svg', class: 'fremalogo-footer'
     .footer1__bottom__copyright
       %small @Frema,lnc.
