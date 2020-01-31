@@ -8,13 +8,13 @@
       .pi-main__container__item__box
         .pi-main__container__item__box__in
           .pi-main__container__item__box__in__image
-            = image_tag 'wintry-2915190_1280.png', class: "pi-image"
+            = image_tag @item.images[0].source.url,width: "100%",height: "100%"
           .pi-main__container__item__box__in__detail
             .pi-main__container__item__box__in__detail__name
-              コーチショルダーバック
+              = @item.name            
             .pi-main__container__item__box__in__detail__money
               .pi-main__container__item__box__in__detail__money__span
-                ¥4.980
+                = @item.price
               .pi-main__container__item__box__in__detail__money__fee
                 （税込）送料込み
 
@@ -24,7 +24,7 @@
         .pi-main__container__form__inner__price
           支払い金額
         .pi-main__container__form__inner__yen
-          ¥4,980
+          = @item.price
       .pi-main__container__form__point
         .pi-main__container__form__point__icon
           ■
@@ -50,18 +50,20 @@
               変更する
           .pi-main__container__form__address__inner__text
             .pi-main__container__form__address__inner__text__detail
-              〒123-4567
+              = current_user.address.postal_code
             .pi-main__container__form__address__inner__text__detail__h1
-              東京都 練馬区 テック
+              = current_user.address.prefecture + current_user.address.municipality
             .pi-main__container__form__address__inner__text__detail__h2
-              渡辺 豊
+              = current_user.nickname
 
       .pi-main__container__form__section
-        %button.pi-main__container__form__section__button{:disabled => "disabled", :type => "submit"} 購入する
-
-
-
-= render "shared/footer2"
+        - if current_user.card.present?
+          = link_to "購入する", pay_item_path(@item.id), method: :post, class: 'pi-main__container__form__section__button', disabled: "disabled", type: "submit" 
+        - else
+          = link_to "クレジットカードを登録する", "cards/new", method: :get, class: 'pi-main__container__form__section__button', disabled: "disabled", type: "submit"    
+        
         
 
 
+
+= render "shared/footer2"     
